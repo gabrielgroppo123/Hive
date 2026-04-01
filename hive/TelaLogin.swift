@@ -9,6 +9,7 @@ import SwiftUI
 struct TelaLogin: View {
     @State var email: String = ""
     @State var senha: String = ""
+    @State var irHome: Bool = false
     
     var body: some View {
         VStack(spacing: 16) {
@@ -24,13 +25,12 @@ struct TelaLogin: View {
             
             // Título
             Text("Login")
-                .font(.title)
-                .bold()
+                .font(Font.custom("Parkinsans",size: 30))
                 .padding(.bottom, 10)
-            
+                .fontWeight(.bold)
             // Campo email
             TextField("CPF/e-mail", text: $email)
-                .padding()
+                .padding(10)
                 .background(Color(.systemGray6))
                 .cornerRadius(10)
                 .padding(.horizontal, 30)
@@ -38,7 +38,7 @@ struct TelaLogin: View {
             
             // Campo senha
             SecureField("Digite sua senha", text: $senha)
-                .padding()
+                .padding(10)
                 .background(Color(.systemGray6))
                 .cornerRadius(10)
                 .padding(.horizontal, 30)
@@ -51,23 +51,28 @@ struct TelaLogin: View {
                     .foregroundColor(Color(red: 247/255, green: 54/255, blue: 109/255))
                     .font(.footnote)
                     .padding(.trailing, 55)
-//                    .padding(.top, -12)
+               
             }
             
             
             // Botão Login
-            NavigationLink(destination: TelaPrincipal()) {
+            Button(action: {
+                irHome = true
+            }) {
                 Text("Login")
                     .foregroundColor(.white)
-                    .bold()
                     .frame(width: 250)
-                    .padding()
+                    .padding(15)
                     .background(Color(red: 247/255, green: 54/255, blue: 109/255))
                     .cornerRadius(10)
+                    .font(Font.custom("Parkinsans",size: 18))
                     
             }
             .padding(.horizontal, 30)
             .padding(.top, 10)
+            .navigationDestination(isPresented: $irHome){
+                TelaPrincipal()
+            }
             
             
             // Criar conta
@@ -83,6 +88,7 @@ struct TelaLogin: View {
             
             Spacer()
         }
+        .ignoresSafeArea(.keyboard)
         .navigationBarBackButtonHidden(true)
     }
     

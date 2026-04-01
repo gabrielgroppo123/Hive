@@ -18,7 +18,7 @@ struct TelaCarregamento: View {
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing)
                     .ignoresSafeArea()
-
+                    
                     Image("Logo Branca")
                         .resizable()
                         .scaledToFit()
@@ -27,7 +27,15 @@ struct TelaCarregamento: View {
             }
             .buttonStyle(.plain)
         }
+        .onAppear {
+            for family in UIFont.familyNames {
+                for font in UIFont.fontNames(forFamilyName: family) {
+                    print(font)
+                }
+            }
+        }
     }
+    
 }
 
 #Preview {
