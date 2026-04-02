@@ -119,7 +119,7 @@ struct Perfil: View {
                             .padding(.vertical, 15)
                             .frame(width: 320, height: 60)
                             .background(Color(red: 0.97, green: 0.21, blue: 0.43))
-                            .cornerRadius(11)
+                            .cornerRadius(12)
                     }
                         .padding(.bottom, 5)
                 }
@@ -138,11 +138,12 @@ struct Perfil: View {
                             .padding(.bottom, 17)
                             .frame(width: 320, height: 60)
                             .background(Color(red: 0.97, green: 0.21, blue: 0.43))
-                            .cornerRadius(11)
+                            .cornerRadius(12)
                     }
                        .padding(.bottom, 10)
                 }
-            }.padding(.vertical)
+            }
+            .padding(.vertical)
             
             
             Rectangle()

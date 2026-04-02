@@ -52,8 +52,6 @@ struct ContentView: View {
                 Text("Nome:")
                     .font(.system(size: 22))
                     .fontWeight(.bold)
-                    .foregroundColor(
-                        Color(.black))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                Text(usuario.nome)
@@ -70,8 +68,6 @@ struct ContentView: View {
                 Text("E-mail:")
                     .font(.system(size: 22))
                     .fontWeight(.bold)
-                    .foregroundColor(
-                        Color(.black))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     
@@ -89,8 +85,6 @@ struct ContentView: View {
                 Text("Telefone:")
                     .font(.system(size: 22))
                     .fontWeight(.bold)
-                    .foregroundColor(
-                        Color(.black))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     
@@ -108,8 +102,6 @@ struct ContentView: View {
                 Text("Endereço:")
                     .font(.system(size: 22))
                     .fontWeight(.bold)
-                    .foregroundColor(
-                        Color(.black))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     
@@ -127,8 +119,6 @@ struct ContentView: View {
                 Text("CPF/CNPJ:")
                     .font(.system(size: 22))
                     .fontWeight(.bold)
-                    .foregroundColor(
-                        Color(.black))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     
