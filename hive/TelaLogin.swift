@@ -33,7 +33,7 @@ struct TelaLogin: View {
                 .padding(10)
                 .background(Color(.systemGray6))
                 .cornerRadius(10)
-                .padding(.horizontal, 30)
+                .padding(.horizontal, 35)
                 .frame(width: 350)
             
             // Campo senha
@@ -41,7 +41,7 @@ struct TelaLogin: View {
                 .padding(10)
                 .background(Color(.systemGray6))
                 .cornerRadius(10)
-                .padding(.horizontal, 30)
+                .padding(.horizontal, 35)
                 .frame(width: 350)
             
             // Esqueci minha senha
@@ -50,7 +50,7 @@ struct TelaLogin: View {
                 Button("Esqueci minha senha") {}
                     .foregroundColor(Color(red: 247/255, green: 54/255, blue: 109/255))
                     .font(.footnote)
-                    .padding(.trailing, 55)
+                    .padding(.trailing, 60)
                
             }
             
@@ -68,7 +68,7 @@ struct TelaLogin: View {
                     .font(Font.custom("Parkinsans",size: 18))
                     
             }
-            .padding(.horizontal, 30)
+            .padding(.horizontal, 35)
             .padding(.top, 10)
             .navigationDestination(isPresented: $irHome){
                 TelaPrincipal()
