@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct TelaPerfil: View {
+    @State var irHome: Bool = false
     var body: some View {
         VStack {
-            Button(action:{
-                print("Voltar")
-            }) {
+            //SetaVoltar
+            Button(action: { irHome = true }) {
                 Image("seta voltar")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 35)
-                    .padding(.bottom, 25)
             }
+            .buttonStyle(.plain)
+            .navigationDestination(isPresented: $irHome) {
+                TelaPrincipal()
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, 35)
+            .padding(.bottom, 25)
+            
             
             HStack{
                 Text("Meu Perfil")
@@ -33,7 +38,7 @@ struct TelaPerfil: View {
                     .padding(.leading, 35)
                     .padding(.bottom, 25)
                 
-                Spacer()
+                
                 
             }
             
@@ -110,16 +115,17 @@ struct TelaPerfil: View {
                         
                 }){
                     VStack(alignment: .leading){
-                        Text("Informações pessoais")
-                            .padding(.leading, 19)
+                        Text("Dados pessoais")
+                            
                             .foregroundColor(.white)
-                            .fontWeight(.regular)
+                            .fontWeight(.bold)
                             .font(.system(size: 20))
-                            .padding(.trailing, 100)
+                            
                             .padding(.vertical, 15)
                             .frame(width: 320, height: 60)
                             .background(Color(red: 0.97, green: 0.21, blue: 0.43))
                             .cornerRadius(11)
+                            
                     }
                         .padding(.bottom, 5)
                 }
@@ -129,11 +135,11 @@ struct TelaPerfil: View {
                 }){
                     VStack(alignment: .leading){
                         Text("Dúvidas frequentes")
-                            .padding(.leading, 19)
+                           
                             .foregroundColor(.white)
-                            .fontWeight(.regular)
+                            .fontWeight(.bold)
                             .font(.system(size: 20))
-                            .padding(.trailing, 120)
+                            
                             .padding(.top, 15)
                             .padding(.bottom, 17)
                             .frame(width: 320, height: 60)

@@ -107,7 +107,7 @@ struct TelaPrincipal: View {
                                         Rectangle()
                                             .foregroundColor(.clear)
                                             .frame(width: 90, height: 90)
-                                            .background(Color(red: 0.92, green: 0.92, blue: 0.92))
+                                            .background(Color(.white))
                                             .cornerRadius(9.5)
                                             .shadow(radius: 5, x: 4, y: 4)
                                         VStack(spacing: 10) {

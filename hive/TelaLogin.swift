@@ -10,6 +10,7 @@ struct TelaLogin: View {
     @State var email: String = ""
     @State var senha: String = ""
     @State var irHome: Bool = false
+    @State var irCriarConta: Bool = false
     
     var body: some View {
         VStack(spacing: 16) {
@@ -29,7 +30,7 @@ struct TelaLogin: View {
                 .padding(.bottom, 10)
                 .fontWeight(.bold)
             // Campo email
-            TextField("CPF/e-mail", text: $email)
+            TextField("CPF ou E-mail", text: $email)
                 .padding(10)
                 .background(Color(.systemGray6))
                 .cornerRadius(10)
@@ -50,6 +51,7 @@ struct TelaLogin: View {
                 Button("Esqueci minha senha") {}
                     .foregroundColor(Color(red: 247/255, green: 54/255, blue: 109/255))
                     .font(.footnote)
+                    .fontWeight(.semibold)
                     .padding(.trailing, 60)
                
             }
@@ -59,13 +61,14 @@ struct TelaLogin: View {
             Button(action: {
                 irHome = true
             }) {
-                Text("Login")
+                Text("Entrar")
                     .foregroundColor(.white)
                     .frame(width: 250)
                     .padding(15)
                     .background(Color(red: 247/255, green: 54/255, blue: 109/255))
                     .cornerRadius(10)
                     .font(Font.custom("Parkinsans",size: 18))
+                    .fontWeight(.bold)
                     
             }
             .padding(.horizontal, 35)
@@ -76,14 +79,22 @@ struct TelaLogin: View {
             
             
             // Criar conta
-            VStack(spacing: -3) {
+            VStack {
                 Text("Ainda não tem conta?")
                     .font(.footnote)
                     .foregroundColor(.gray)
-                Button("Criar conta") {}
-                    .foregroundColor(Color(red: 247/255, green: 54/255, blue: 109/255))
-                    .bold()
-                    .font(.footnote)
+                Button(action: {
+                    irCriarConta = true
+                }) {
+                    Text("Criar conta")
+                        .foregroundColor(Color(red: 247/255, green: 54/255, blue: 109/255))
+                        .bold()
+                        .font(.footnote)
+                }
+                .navigationDestination(isPresented: $irCriarConta){
+                    CriarConta()
+                }
+               
             }
             
             Spacer()

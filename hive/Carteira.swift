@@ -41,32 +41,34 @@ struct Carteira: View {
                     Text("Saldo")
                         .foregroundColor(.white)
                         .font(Font.custom("Parkinsans", size: 22))
+                        .fontWeight(.regular)
                     Spacer()
                     Image("olhinho")
                 }
                 .padding(.horizontal, 30)
 
-                Text("R$1.000,00")
+                Text("R$ 1.000,00")
                     .foregroundColor(.white)
                     .font(Font.custom("Parkinsans", size: 40))
                     .padding(.horizontal, 30)
                     .padding(.top, 8)
+                    .fontWeight(.semibold)
 
                 // Barrinha separadora
                 Rectangle()
                     .foregroundColor(Color(red: 0.97, green: 0.42, blue: 0.54).opacity(0.6))
                     .frame(height: 2)
                     .padding(.horizontal, 30)
-                    .padding(.top, 50)
+                    .padding(.top, 35)
                     .padding(.bottom, 24)
 
                 // Extrato
                 Text("Extrato")
                     .foregroundColor(.white)
-                    .font(Font.custom("Parkinsans", size: 30))
+                    .font(Font.custom("Parkinsans", size: 32))
                     .fontWeight(.bold)
                     .padding(.horizontal, 30)
-                    .padding(.bottom, 16)
+                    .padding(.bottom, 30)
 
                 // Transações
                 VStack(spacing: 20) {
@@ -74,6 +76,7 @@ struct Carteira: View {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Transação")
                                 .foregroundColor(.white)
+                                .fontWeight(.bold)
                                 .font(Font.custom("Parkinsans", size: 21))
                             Text("Destino")
                                 .foregroundColor(.white)
@@ -83,6 +86,7 @@ struct Carteira: View {
                         VStack(alignment: .trailing, spacing: 4) {
                             Text("Valor")
                                 .foregroundColor(.white)
+                                .fontWeight(.bold)
                                 .font(Font.custom("Parkinsans", size: 21))
                             Text("Data")
                                 .foregroundColor(.white)
@@ -94,6 +98,7 @@ struct Carteira: View {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Transação")
                                 .foregroundColor(.white)
+                                .fontWeight(.bold)
                                 .font(Font.custom("Parkinsans", size: 21))
                             Text("Destino")
                                 .foregroundColor(.white)
@@ -103,7 +108,9 @@ struct Carteira: View {
                         VStack(alignment: .trailing, spacing: 4) {
                             Text("Valor")
                                 .foregroundColor(.white)
+                                .fontWeight(.bold)
                                 .font(Font.custom("Parkinsans", size: 21))
+                            
                             Text("Data")
                                 .foregroundColor(.white)
                                 .font(Font.custom("Parkinsans", size: 18))
@@ -114,6 +121,7 @@ struct Carteira: View {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Transação")
                                 .foregroundColor(.white)
+                                .fontWeight(.bold)
                                 .font(Font.custom("Parkinsans", size: 21))
                             Text("Destino")
                                 .foregroundColor(.white)
@@ -123,6 +131,7 @@ struct Carteira: View {
                         VStack(alignment: .trailing, spacing: 4) {
                             Text("Valor")
                                 .foregroundColor(.white)
+                                .fontWeight(.bold)
                                 .font(Font.custom("Parkinsans", size: 21))
                             Text("Data")
                                 .foregroundColor(.white)
