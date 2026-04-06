@@ -29,9 +29,9 @@ struct ContentView: View {
             Button(action:{
                 print("Voltar")
             }) {
-                Image("seta voltar")
+                Image("seta")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 10)
+                    .padding(.leading, 20)
                     .padding(.bottom, 35)
             }
             
@@ -46,7 +46,7 @@ struct ContentView: View {
                     ))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
-                .padding(.bottom, 20)
+                .padding(.bottom, 30)
             
             VStack (){
                 Text("Nome:")
@@ -68,7 +68,6 @@ struct ContentView: View {
                 Text("E-mail:")
                     .font(.system(size: 22))
                     .fontWeight(.bold)
-                    
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     
@@ -86,7 +85,6 @@ struct ContentView: View {
                 Text("Telefone:")
                     .font(.system(size: 22))
                     .fontWeight(.bold)
-                    
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     
@@ -104,7 +102,6 @@ struct ContentView: View {
                 Text("Endereço:")
                     .font(.system(size: 22))
                     .fontWeight(.bold)
-                   
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     
@@ -122,7 +119,6 @@ struct ContentView: View {
                 Text("CPF/CNPJ:")
                     .font(.system(size: 22))
                     .fontWeight(.bold)
-                    
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     
@@ -154,6 +150,19 @@ struct ContentView: View {
                         .cornerRadius(11)
                 } .padding(.trailing, 210)
                     .padding(.bottom, 65)
+                   
+                
+                
+                
+                //Text("Editar")
+                   //.
+//                    .foregroundColor(.clear)
+//                    .frame(width: 105.30144, height: 48.88995)
+//                    .background(Color(red: 0.97, green: 0.21, blue: 0.43))
+//                    .cornerRadius(11)
+//                    .frame(maxWidth: .infinity, alignment: .leading)
+//                    .padding(.leading, 20)
+//                    .padding(.bottom, )
                     
             }
                 
