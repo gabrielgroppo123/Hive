@@ -179,7 +179,9 @@ struct TelaPerfil: View {
                 Spacer()
             }.padding(.horizontal, 35)
         }
+        .navigationBarBackButtonHidden(true)
     }
+    
 }
     
 #Preview {

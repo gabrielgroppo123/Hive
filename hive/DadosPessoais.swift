@@ -27,7 +27,8 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button(action:{
-                print("Voltar")
+                
+                
             }) {
                 Image("seta voltar")
                     .frame(maxWidth: .infinity, alignment: .leading)
