@@ -8,25 +8,46 @@
 import SwiftUI
 
 struct Confirmar: View {
+    @State var continuar: Bool = false
+    @State var voltar: Bool = false
+    
+    
     var body: some View {
         
         VStack{
+            Button(action:{
+                voltar = true
+            }) {
+                Image("seta")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 35)
+            }.navigationDestination(isPresented: $voltar){
+                AreaBoleto()
+            }
+            .padding(.bottom, 40)
+            
             Image("iconhive")
                 .padding(.bottom, 10)
-            Text("Pagar R$100,00")
+            Text("Pagar R$ 100,00")
                 .font(.system(size: 22))
                 .fontWeight(.bold)
-                .padding(.bottom, 1)
-            Text("Para X")
-                .font(.system(size: 18))
-                .foregroundColor(.gray)
-                .padding(.bottom, 100)
+                .padding(.bottom, 3)
+            HStack{
+                Text("Para")
+                    .foregroundColor(.gray)
+                Text("São José Restaurante")
+                    .padding(.leading, -2)
+                    .fontWeight(.bold)
+                    .foregroundColor(.gray)
+            }.padding(.bottom, 120)
+                
             HStack{
                 Text("Quem vai receber")
                     .font(.system(size: 22))
                     .padding(.bottom, 15)
                     .padding(.leading, 35)
                 Spacer()
+
             }
             HStack{
                 Text("Nome")
@@ -65,7 +86,7 @@ struct Confirmar: View {
                 .padding(.horizontal, 35)
             
             Button(action:{
-                print("Voltar")
+                continuar = true
             }){
                 VStack(alignment: .leading){
                     Text("Continuar")
@@ -73,11 +94,14 @@ struct Confirmar: View {
                         
                         .font(.system(size: 20))
                         .frame(width: 320, height: 50)
+                        .fontWeight(.bold)
                     //.frame(width: 105, height: 49, alignment: .center)
                         .background(Color(red: 0.97, green: 0.21, blue: 0.43))
                         .cornerRadius(12)
+                }.navigationDestination(isPresented:$continuar){
+                    //DigitarPin
                 }
-                //.padding(.bottom, 10)
+                .padding(.bottom, 10)
             }
         }
         

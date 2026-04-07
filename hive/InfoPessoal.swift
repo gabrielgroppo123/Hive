@@ -15,7 +15,8 @@ struct Info {
     let cpf: String;
 }
 
-struct ContentView: View {
+struct InfoPessoal: View {
+    @State var voltar: Bool = false
     let usuario = Info(
         nome:"Ana Clara Fornazier Rocha",
         email:"pedro.hhteruel@senacsp.edu.br",
@@ -27,15 +28,17 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button(action:{
-                print("Voltar")
+                voltar = true
             }) {
                 Image("seta")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     .padding(.bottom, 35)
+            }.navigationDestination(isPresented:$voltar){
+                Perfil()
             }
             
-            Text("Informações pessoais")
+            Text("Dados pessoais")
                 .font(.system(size: 38))
                 .fontWeight(.bold)
                 .foregroundColor(
@@ -134,17 +137,17 @@ struct ContentView: View {
             
             
             Button(action:{
-                print("Voltar")
+                print("Editar")
             }){
                 VStack(alignment: .leading){
                     Text("Editar")
-                        .padding(.leading, 19)
+                        //.padding(.leading, 19)
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .font(.system(size: 20))
-                        .padding(.trailing, 13)
-                        .padding(.top, 15)
-                        .padding(.bottom, 17)
+                        //.padding(.trailing, 13)
+                        //.padding(.top, 15)
+                        //.padding(.bottom, 17)
                         .frame(width: 105.30144, height: 48.88995, alignment: .center)
                         .background(Color(red: 0.97, green: 0.21, blue: 0.43))
                         .cornerRadius(11)
@@ -172,5 +175,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    InfoPessoal()
 }

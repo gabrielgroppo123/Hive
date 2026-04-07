@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct AreaBoleto: View {
+    @State var voltar: Bool = false
+    @State var escanear: Bool = false
+    @State var codigo: Bool = false
     
     var body: some View {
         VStack {
-            Button(action:{
-                print("Voltar")
-            }) {
+            Button(action:{ voltar = true }) {
                 Image("seta")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     .padding(.bottom, 35)
+            }.navigationDestination(isPresented: $voltar){
+                TelaPrincipal()
             }
             
             Text("Área Boleto")
@@ -25,36 +28,42 @@ struct AreaBoleto: View {
                 .fontWeight(.bold)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
-                .padding(.bottom, 30)
+                .padding(.bottom, 60)
             
             
             Button(action:{
-                print("Voltar")
+                escanear = true
             }){
                 VStack(alignment: .leading){
                     Text("Escanear")
                         .foregroundColor(.white)
-                        .padding(.trailing, 200)
+                        //.padding(.trailing, 200)
+                        .fontWeight(.bold)
                         .font(.system(size: 20))
                         .frame(width: 320, height: 50)
                     //.frame(width: 105, height: 49, alignment: .center)
                         .background(.pink)
                         .cornerRadius(12)
+                }.navigationDestination(isPresented: $escanear){
+                    BoletoDigitar()
                 }
             }.padding(.bottom, 5)
             
             Button(action:{
-                print("Voltar")
+                codigo = true
             }){
                 VStack(alignment: .leading){
                     Text("Digitar código")
                         .foregroundColor(.white)
-                        .padding(.trailing, 160)
+                        .fontWeight(.bold)
+                        //.padding(.trailing, 160)
                         .font(.system(size: 20))
                         .frame(width: 320, height: 50)
                     //.frame(width: 105, height: 49, alignment: .center)
                         .background(.pink)
                         .cornerRadius(12)
+                }.navigationDestination(isPresented: $codigo){
+                    BoletoDigitar()
                 }
                 .padding(.bottom, 80)
             }
@@ -72,20 +81,20 @@ struct AreaBoleto: View {
             HStack{
                 Text("Boleto")
                     .font(.system(size: 22))
-                    .fontWeight(.regular)
+                    .fontWeight(.bold)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                 Spacer()
-                Text("Valor")
+                Text("- R$200,00")
                     .font(.system(size: 22))
-                    .fontWeight(.regular)
+                    .fontWeight(.bold)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing, 20)
                 
         
             }
             HStack{
-                Text("Destino")
+                Text("FWT Serviços")
                     .font(.system(size: 18))
                     .fontWeight(.regular)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -93,7 +102,7 @@ struct AreaBoleto: View {
                     .padding(.bottom, 30)
                     .foregroundColor(Color(.darkGray))
                 Spacer()
-                Text("Data")
+                Text("09/04")
                     .font(.system(size: 18))
                     .fontWeight(.regular)
                     .frame(maxWidth: .infinity, alignment: .trailing)

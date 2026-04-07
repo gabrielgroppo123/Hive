@@ -8,15 +8,21 @@
 import SwiftUI
 
 struct Perfil: View {
+    @State var dados: Bool = false
+    @State var voltar: Bool = false
+    @State var faq: Bool = false
+    @State var sair: Bool = false
     var body: some View {
         VStack {
             Button(action:{
-                print("Voltar")
+                voltar = true
             }) {
                 Image("seta")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 35)
                     .padding(.bottom, 25)
+            }.navigationDestination(isPresented:$voltar){
+                TelaPrincipal()
             }
             
             HStack{
@@ -42,7 +48,7 @@ struct Perfil: View {
                     .resizable()
                     .frame(width: 70, height: 70)
                 
-                Label("Nome", systemImage: "nome")
+                Label("Gabriel Groppo", systemImage: "nome")
                     .font(.system(size: 28))
                 
                 Spacer()
@@ -106,39 +112,43 @@ struct Perfil: View {
                 }
                 
                 Button(action:{
-                    print("Informacoes pessoais")
+                    dados = true
                         
                 }){
                     VStack(alignment: .leading){
-                        Text("Informações pessoais")
-                            .padding(.leading, 19)
+                        Text("Dados pessoais")
+                            //.padding(.leading, 19)
                             .foregroundColor(.white)
-                            .fontWeight(.regular)
+                            .fontWeight(.bold)
                             .font(.system(size: 20))
-                            .padding(.trailing, 100)
-                            .padding(.vertical, 15)
+                            //.padding(.trailing, 100)
+                            //.padding(.vertical, 15)
                             .frame(width: 320, height: 60)
                             .background(Color(red: 0.97, green: 0.21, blue: 0.43))
                             .cornerRadius(12)
+                    }.navigationDestination(isPresented: $dados){
+                        InfoPessoal()
                     }
-                        .padding(.bottom, 5)
+                        //.padding(.bottom, 5)
                 }
  
                 Button(action:{
-                    print("Voltar")
+                    faq = true
                 }){
                     VStack(alignment: .leading){
                         Text("Dúvidas frequentes")
-                            .padding(.leading, 19)
+                            //.padding(.leading, 19)
                             .foregroundColor(.white)
-                            .fontWeight(.regular)
+                            .fontWeight(.bold)
                             .font(.system(size: 20))
-                            .padding(.trailing, 120)
-                            .padding(.top, 15)
-                            .padding(.bottom, 17)
+                            //.padding(.trailing, 120)
+                            //.padding(.top, 15)
+                            //.padding(.bottom, 17)
                             .frame(width: 320, height: 60)
                             .background(Color(red: 0.97, green: 0.21, blue: 0.43))
                             .cornerRadius(12)
+                    }.navigationDestination(isPresented: $faq){
+                        //FAQ()
                     }
                        .padding(.bottom, 10)
                 }
@@ -149,7 +159,7 @@ struct Perfil: View {
             Rectangle()
               .foregroundColor(.clear)
               .frame(width: 320, height: 2)
-              .background(.black.opacity(0.11))
+              .background(.gray.opacity(0.1))
             
             HStack{
                 Image("duvida")
@@ -164,7 +174,9 @@ struct Perfil: View {
                 .padding(.vertical, 5)
                 .padding(.top, 10)
             
-            HStack{
+            Button(action:{
+                sair = true
+            }){HStack{
                 Image("sair")
                 Label("Sair da Conta",systemImage: "Sair")
                     .font(.system(size: 17))
@@ -172,7 +184,11 @@ struct Perfil: View {
                     .foregroundColor(Color(.darkGray))
                     .padding(.leading, -8)
                 Spacer()
-            }.padding(.horizontal, 35)     
+            }.navigationDestination(isPresented:$sair){
+                //TelaLogin()
+            }
+            }
+                .padding(.horizontal, 35)
         }
     }
 }
