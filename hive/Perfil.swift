@@ -27,8 +27,8 @@ struct Perfil: View {
             
             HStack{
                 Text("Meu Perfil")
-                    .font(.system(size: 40))
-                    .fontWeight(.bold)
+                    .font(.custom("Parkinsans", size: 40))
+                    .fontWeight(.semibold)
                     .foregroundColor(
                         Color(
                             red: 247/255,
@@ -48,8 +48,9 @@ struct Perfil: View {
                     .resizable()
                     .frame(width: 70, height: 70)
                 
-                Label("Gabriel Groppo", systemImage: "nome")
-                    .font(.system(size: 28))
+                Label("Ana Clara Fornazier Rocha", systemImage: "nome")
+                  //.font(.system(size: 28))
+                    .font(.custom("Rubik", size:26))
                 
                 Spacer()
                         
@@ -61,7 +62,7 @@ struct Perfil: View {
             VStack{
                 HStack{
                     Text("Número da conta")
-                        .font(.system(size: 19))
+                        .font(.custom("Rubik", size: 19))
                         .fontWeight(.regular)
                         .foregroundColor(
                             Color(.darkGray))
@@ -70,7 +71,7 @@ struct Perfil: View {
                         .padding(.bottom, 10)
                     Spacer()
                     Text("234578-2")
-                        .font(.system(size: 19))
+                        .font(.custom("Rubik", size: 19))
                         .fontWeight(.regular)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, 35)
@@ -78,7 +79,7 @@ struct Perfil: View {
                 }
                 HStack{
                     Text("Agência")
-                        .font(.system(size: 19))
+                        .font(.custom("Rubik", size: 19))
                         .fontWeight(.regular)
                         .foregroundColor(
                             Color(.darkGray))
@@ -87,7 +88,7 @@ struct Perfil: View {
                         .padding(.bottom, 10)
                     Spacer()
                     Text("0001")
-                        .font(.system(size: 19))
+                        .font(.custom("Rubik", size: 19))
                         .fontWeight(.regular)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, 35)
@@ -95,7 +96,7 @@ struct Perfil: View {
                 }
                 HStack{
                     Text("Banco")
-                        .font(.system(size: 19))
+                        .font(.custom("Rubik", size: 19))
                         .fontWeight(.regular)
                         .foregroundColor(
                             Color(.darkGray))
@@ -104,7 +105,7 @@ struct Perfil: View {
                         .padding(.bottom, 20)
                     Spacer()
                     Text("335-hive")
-                        .font(.system(size: 19))
+                        .font(.custom("Rubik", size: 19))
                         .fontWeight(.regular)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, 35)
@@ -119,8 +120,8 @@ struct Perfil: View {
                         Text("Dados pessoais")
                             //.padding(.leading, 19)
                             .foregroundColor(.white)
-                            .fontWeight(.bold)
-                            .font(.system(size: 20))
+                            .fontWeight(.semibold)
+                            .font(.custom("Rubik", size: 20))
                             //.padding(.trailing, 100)
                             //.padding(.vertical, 15)
                             .frame(width: 320, height: 60)
@@ -140,7 +141,7 @@ struct Perfil: View {
                             //.padding(.leading, 19)
                             .foregroundColor(.white)
                             .fontWeight(.bold)
-                            .font(.system(size: 20))
+                            .font(.custom("Rubik", size: 20))
                             //.padding(.trailing, 120)
                             //.padding(.top, 15)
                             //.padding(.bottom, 17)
@@ -164,7 +165,7 @@ struct Perfil: View {
             HStack{
                 Image("duvida")
                 Label("Central de Ajuda",systemImage: "Ajuda")
-                    .font(.system(size: 17))
+                    .font(.custom("Rubik", size: 17))
                     .fontWeight(.regular)
                     .foregroundColor(Color(.darkGray))
                     .padding(.leading, -8)
@@ -179,7 +180,7 @@ struct Perfil: View {
             }){HStack{
                 Image("sair")
                 Label("Sair da Conta",systemImage: "Sair")
-                    .font(.system(size: 17))
+                    .font(.custom("Rubik", size: 17))
                     .fontWeight(.regular)
                     .foregroundColor(Color(.darkGray))
                     .padding(.leading, -8)
