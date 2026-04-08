@@ -26,7 +26,7 @@ struct TelaLogin: View {
             
             // Título
             Text("Login")
-                .font(Font.custom("Parkinsans",size: 30))
+                .font(Font.custom("Rubik",size: 30))
                 .padding(.bottom, 10)
                 .fontWeight(.bold)
             // Campo email
@@ -36,6 +36,7 @@ struct TelaLogin: View {
                 .cornerRadius(10)
                 .padding(.horizontal, 35)
                 .frame(width: 350)
+                .font(Font.custom("Rubik",size: 18))
             
             // Campo senha
             SecureField("Digite sua senha", text: $senha)
@@ -44,15 +45,18 @@ struct TelaLogin: View {
                 .cornerRadius(10)
                 .padding(.horizontal, 35)
                 .frame(width: 350)
+                .font(Font.custom("Rubik",size: 18))
             
             // Esqueci minha senha
             HStack {
                 Spacer()
                 Button("Esqueci minha senha") {}
-                    .foregroundColor(Color(red: 247/255, green: 54/255, blue: 109/255))
-                    .font(.footnote)
+                    .foregroundColor(Color("corPrincipal"))
+                    .font(Font.custom("Rubik",size: 13))
                     .fontWeight(.semibold)
                     .padding(.trailing, 60)
+                
+                
                
             }
             
@@ -65,9 +69,9 @@ struct TelaLogin: View {
                     .foregroundColor(.white)
                     .frame(width: 250)
                     .padding(15)
-                    .background(Color(red: 247/255, green: 54/255, blue: 109/255))
+                    .background(Color("corPrincipal"))
                     .cornerRadius(10)
-                    .font(Font.custom("Parkinsans",size: 18))
+                    .font(Font.custom("Rubik",size: 20))
                     .fontWeight(.bold)
                     
             }
@@ -81,13 +85,14 @@ struct TelaLogin: View {
             // Criar conta
             VStack {
                 Text("Ainda não tem conta?")
-                    .font(.footnote)
+                    
                     .foregroundColor(.gray)
+                    .font(Font.custom("Rubik",size: 13))
                 Button(action: {
                     irCriarConta = true
                 }) {
                     Text("Criar conta")
-                        .foregroundColor(Color(red: 247/255, green: 54/255, blue: 109/255))
+                        .foregroundColor(Color("corPrincipal"))
                         .bold()
                         .font(.footnote)
                 }

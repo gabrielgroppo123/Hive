@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-@available(*, deprecated)
+//@available(*, deprecated)
 struct CriarConta: View {
     @State var irLogin: Bool = false
     @State var irHome: Bool = false
@@ -20,6 +20,7 @@ struct CriarConta: View {
     @State var chavePix: String? = nil
     @State var telefone: String = ""
     @State var mostrarSenha: Bool = false
+    @State var irPin: Bool = false
     
     func formatarTelefone(_ value: String) -> String {
        
@@ -68,17 +69,14 @@ struct CriarConta: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, 35)
             .padding(.bottom, 25)
+            .padding(.top, 50)
             
             //Criar Conta
             Text("Criar Conta")
-                .font(.system(size: 40))
+                .font(.custom("Parkinsans", size: 40))
                 .fontWeight(.bold)
                 .foregroundColor(
-                    Color(
-                        red: 247/255,
-                        green: 54/255,
-                        blue: 109/255,
-                    ))
+                    Color("corPrincipal"))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 35)
                 .padding(.bottom, 25)
@@ -90,6 +88,8 @@ struct CriarConta: View {
                 .cornerRadius(10)
                 .padding(.horizontal, 35)
                 .frame(width: 400)
+                .font(Font.custom("Rubik", size: 17))
+                
             // Campo CPF
             TextField("CPF", text: $cpf)
                 .padding(10)
@@ -99,6 +99,7 @@ struct CriarConta: View {
                 .frame(width: 400)
                 .keyboardType(.numberPad)
                 .textInputAutocapitalization(.never)
+                .font(Font.custom("Rubik", size: 17))
                 
                 .onChange(of: cpf) { newValue in
                     cpf = formatarCPF(newValue)
@@ -111,6 +112,7 @@ struct CriarConta: View {
                 .padding(.horizontal, 35)
                 .frame(width: 400)
                 .textInputAutocapitalization(.never)
+                .font(Font.custom("Rubik", size: 17))
             // Campo Telefone
             TextField("Número de telefone", text: $telefone)
                 .padding(10)
@@ -118,8 +120,9 @@ struct CriarConta: View {
                 .cornerRadius(10)
                 .padding(.horizontal, 35)
                 .frame(width: 400)
-                .keyboardType(.numberPad) // só abre teclado numérico
+                .keyboardType(.numberPad)
                 .textInputAutocapitalization(.never)
+                .font(Font.custom("Rubik", size: 17))
                 .onChange(of: telefone) { newValue in
                     telefone = formatarTelefone(newValue)
                 }
@@ -127,7 +130,7 @@ struct CriarConta: View {
             Button(action: { mostrarDatePicker = true }) {
                 HStack {
                     Text(dataNascimento == nil ? "Data de Nascimento" : dataNascimento!.formatted(date: .numeric, time: .omitted))
-                        .foregroundColor(dataNascimento == nil ? Color(.lightGray) : .black)
+                        .foregroundColor(dataNascimento == nil ? Color(.systemGray2) : .black)
                     Spacer()
                 }
                 .padding(10)
@@ -135,6 +138,7 @@ struct CriarConta: View {
                 .cornerRadius(10)
                 .padding(.horizontal, 35)
                 .frame(width: 400)
+                .font(Font.custom("Rubik", size: 17))
             }
             .buttonStyle(.plain)
             .sheet(isPresented: $mostrarDatePicker) {
@@ -148,7 +152,7 @@ struct CriarConta: View {
                         displayedComponents: .date
                     )
                     .datePickerStyle(.graphical)
-                    .tint(Color(red: 247/255, green: 54/255, blue: 109/255))
+                    .tint(Color("corPrincipal"))
                     .padding()
                     
                     Button("Confirmar") {
@@ -160,9 +164,10 @@ struct CriarConta: View {
                     .foregroundColor(.white)
                     .padding(.horizontal, 40)
                     .padding(.vertical, 12)
-                    .background(Color(red: 247/255, green: 54/255, blue: 109/255))
+                    .background(Color("corPrincipal"))
                     .cornerRadius(10)
                     .padding(.bottom, 30)
+                    
                 }
                 .presentationDetents([.medium])
             }
@@ -178,8 +183,8 @@ struct CriarConta: View {
                 }
                 
                 Button(action: { mostrarSenha.toggle() }) {
-                    Image(systemName: mostrarSenha ? "eye.slash" : "eye")
-                        .foregroundColor(.gray)
+                    Image(mostrarSenha ? "olhoCinza" : "olhoFechadoCinza")
+                        
                 }
             }
             .padding(10)
@@ -187,12 +192,13 @@ struct CriarConta: View {
             .cornerRadius(10)
             .padding(.horizontal, 35)
             .frame(width: 400)
+            .font(Font.custom("Rubik", size: 17))
             
             // Campo Chave Pix
             Button(action: { mostrarChavePix = true }) {
                 HStack {
                     Text(chavePix == nil ? "Selecionar Chave Pix" : chavePix!)
-                        .foregroundColor(chavePix == nil ? Color(.lightGray) : .black)
+                        .foregroundColor(chavePix == nil ? Color(.systemGray2) : .black)
                     Spacer()
                 }
                 .padding(10)
@@ -200,6 +206,7 @@ struct CriarConta: View {
                 .cornerRadius(10)
                 .padding(.horizontal, 35)
                 .frame(width: 400)
+                .font(Font.custom("Rubik", size: 17))
             }
             .buttonStyle(.plain)
             .sheet(isPresented: $mostrarChavePix) {
@@ -207,7 +214,7 @@ struct CriarConta: View {
                     Text("Selecionar Chave Pix")
                         .font(Font.custom("Parkinsans", size: 22))
                         .fontWeight(.bold)
-                        .foregroundColor(Color(red: 247/255, green: 54/255, blue: 109/255))
+                        .foregroundColor(Color("corPrincipal"))
                         .padding(.top, 30)
                     
                     Picker("Chave Pix", selection: Binding(
@@ -219,7 +226,7 @@ struct CriarConta: View {
                         Text("CPF").tag("CPF")
                     }
                     .pickerStyle(.wheel)
-                    .tint(Color(red: 247/255, green: 54/255, blue: 109/255))
+                    .tint(Color("corPrincipal"))
                     
                     Button("Confirmar") {
                         if chavePix == nil { chavePix = "Telefone" }
@@ -228,7 +235,7 @@ struct CriarConta: View {
                     .foregroundColor(.white)
                     .padding(.horizontal, 40)
                     .padding(.vertical, 12)
-                    .background(Color(red: 247/255, green: 54/255, blue: 109/255))
+                    .background(Color("corPrincipal"))
                     .cornerRadius(10)
                     .padding(.bottom, 30)
                 }
@@ -237,27 +244,27 @@ struct CriarConta: View {
             
             // Botão Proximo
             Button(action: {
-                irHome = true
+                irPin = true
             }) {
                 Text("Próximo")
                     .foregroundColor(.white)
                     .frame(width: 100, height: 15)
                     .padding(15)
-                    .background(Color(red: 247/255, green: 54/255, blue: 109/255))
+                    .background(Color("corPrincipal"))
                     .cornerRadius(10)
-                    .font(Font.custom("Parkinsans",size: 18))
+                    .font(Font.custom("Rubik",size: 18))
                     .fontWeight(.bold)
                 
             }
             .padding(.trailing, 35)
             .padding(.top, 10)
             .frame(maxWidth: .infinity, alignment: .trailing)
-            .navigationDestination(isPresented: $irHome){
-                TelaPrincipal()
+            .navigationDestination(isPresented: $irPin){
+                DefinirPin()
             }
             Spacer()
         }
-        .padding(.top, 50)
+        Spacer()
         .ignoresSafeArea(.keyboard)
     }
     

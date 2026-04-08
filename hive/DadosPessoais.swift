@@ -15,7 +15,8 @@ struct Info {
     let cpf: String;
 }
 
-struct ContentView: View {
+struct DadosPessoais: View {
+    @State var voltar: Bool = false
     let usuario = Info(
         nome:"Ana Clara Fornazier Rocha",
         email:"pedro.hhteruel@senacsp.edu.br",
@@ -27,36 +28,34 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button(action:{
-                
-                
+                voltar = true
             }) {
                 Image("seta voltar")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 10)
+                    .padding(.leading, 20)
                     .padding(.bottom, 35)
+                    .padding(.top,50)
+            }.navigationDestination(isPresented:$voltar){
+                TelaPerfil()
             }
             
             Text("Dados pessoais")
-                .font(.system(size: 38))
+                .font(.custom("Parkinsans", size: 38))
                 .fontWeight(.bold)
                 .foregroundColor(
-                    Color(
-                        red: 247/255,
-                        green: 54/255,
-                        blue: 109/255,
-                    ))
+                    Color("corPrincipal"))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
-                .padding(.bottom, 20)
+                .padding(.bottom, 30)
             
             VStack (){
                 Text("Nome:")
-                    .font(.system(size: 22))
+                    .font(Font.custom("Rubik", size: 22))
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                Text(usuario.nome)
-                    .font(.system(size: 22))
+                    .font(Font.custom("Rubik", size: 22))
                     .fontWeight(.regular)
                     .foregroundColor(
                         Color(.gray))
@@ -67,14 +66,13 @@ struct ContentView: View {
             
             //VStack {
                 Text("E-mail:")
-                    .font(.system(size: 22))
+                    .font(Font.custom("Rubik", size: 22))
                     .fontWeight(.bold)
-                    
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     
                 Text(usuario.email)
-                    .font(.system(size: 22))
+                    .font(Font.custom("Rubik", size: 22))
                     .fontWeight(.regular)
                     .foregroundColor(
                         Color(.gray))
@@ -85,14 +83,13 @@ struct ContentView: View {
             
             //VStack {
                 Text("Telefone:")
-                    .font(.system(size: 22))
+                    .font(Font.custom("Rubik", size: 22))
                     .fontWeight(.bold)
-                    
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     
                 Text(usuario.tel)
-                    .font(.system(size: 22))
+                    .font(Font.custom("Rubik", size: 22))
                     .fontWeight(.regular)
                     .foregroundColor(
                         Color(.gray))
@@ -103,14 +100,13 @@ struct ContentView: View {
             
             //VStack {
                 Text("Endereço:")
-                    .font(.system(size: 22))
+                    .font(Font.custom("Rubik", size: 22))
                     .fontWeight(.bold)
-                   
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     
                 Text(usuario.end)
-                    .font(.system(size: 22))
+                    .font(Font.custom("Rubik", size: 22))
                     .fontWeight(.regular)
                     .foregroundColor(
                         Color(.gray))
@@ -121,14 +117,13 @@ struct ContentView: View {
             
             //VStack {
                 Text("CPF/CNPJ:")
-                    .font(.system(size: 22))
+                    .font(Font.custom("Rubik", size: 22))
                     .fontWeight(.bold)
-                    
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     
                 Text(usuario.cpf)
-                    .font(.system(size: 22))
+                    .font(Font.custom("Rubik", size: 22))
                     .fontWeight(.regular)
                     .foregroundColor(
                         Color(.gray))
@@ -139,30 +134,27 @@ struct ContentView: View {
             
             
             Button(action:{
-                print("Voltar")
+                print("Editar")
             }){
                 VStack(alignment: .leading){
                     Text("Editar")
-                        
                         .foregroundColor(.white)
                         .fontWeight(.bold)
-                        .font(.system(size: 20))
-                       
-                        .padding(.top, 15)
-                        .padding(.bottom, 17)
-                        .frame(width: 105.30144, height: 48.88995, alignment: .center)
-                        .background(Color(red: 0.97, green: 0.21, blue: 0.43))
+                        .font(Font.custom("Rubik", size: 20))
+                        .frame(width: 105, height: 50, alignment: .center)
+                        .background(Color("corPrincipal"))
                         .cornerRadius(11)
                 } .padding(.trailing, 210)
                     .padding(.bottom, 65)
-                    
+                   
+            
             }
                 
         }
-        .padding()
+        Spacer()
     }
 }
 
 #Preview {
-    ContentView()
+    DadosPessoais()
 }

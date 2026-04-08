@@ -10,6 +10,7 @@ import SwiftUI
 struct TelaPix: View {
     @State var irHome: Bool = false
     @State var irQRCode: Bool = false
+    
     var body: some View {
         NavigationStack {
             ZStack{
@@ -27,6 +28,8 @@ struct TelaPix: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 35)
                             .padding(.bottom, 25)
+                            .padding(.top, 50)
+                            
                             
                             //Olá Fulano
                             Text("Área Pix")
@@ -34,21 +37,26 @@ struct TelaPix: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading, 35)
                                 .padding(.bottom, 25)
-                                .foregroundColor(.black)
+                                .foregroundColor(.primary)
                                 .fontWeight(.bold)
                             
                             // Botão QRCode
                             Button(action: {
                                 irQRCode = true
                             }) {
-                                Text("QR Code")
-                                    .foregroundColor(.white)
-                                    .frame(width: 300, alignment: .topLeading)
-                                    .padding(15)
-                                    .background(Color(red: 247/255, green: 54/255, blue: 109/255))
-                                    .cornerRadius(10)
-                                    .font(Font.custom("Parkinsans",size: 20))
-                                
+                                ZStack{
+                                    Text("QR Code")
+                                        .padding(.leading, 32)
+                                        .foregroundColor(.white)
+                                        .frame(width: 300, alignment: .leading)
+                                        .padding(15)
+                                        .background(Color("corPrincipal"))
+                                        .cornerRadius(10)
+                                        .font(Font.custom("Rubik",size: 20))
+                                    
+                                    Image("qrcode")
+                                        .padding(.trailing, 280)
+                                }
                             }
                             
                             .navigationDestination(isPresented: $irQRCode){
@@ -59,13 +67,19 @@ struct TelaPix: View {
                             Button(action: {
                                 irHome = true
                             }) {
-                                Text("Copia e Cola")
-                                    .foregroundColor(.white)
-                                    .frame(width: 300, alignment: .topLeading)
-                                    .padding(15)
-                                    .background(Color(red: 247/255, green: 54/255, blue: 109/255))
-                                    .cornerRadius(10)
-                                    .font(Font.custom("Parkinsans",size: 20))
+                                ZStack{
+                                    Text("Copia e Cola")
+                                        .padding(.leading, 32)
+                                        .foregroundColor(.white)
+                                        .frame(width: 300, alignment: .leading)
+                                        .padding(15)
+                                        .background(Color("corPrincipal"))
+                                        .cornerRadius(10)
+                                        .font(Font.custom("Rubik",size: 20))
+                                    
+                                    Image("copy")
+                                        .padding(.trailing, 280)
+                                }
                                 
                             }
                             
@@ -77,21 +91,24 @@ struct TelaPix: View {
                             Button(action: {
                                 irHome = true
                             }) {
-                                Text("Chave Pix")
-                                    .foregroundColor(.white)
-                                    .frame(width: 300, alignment: .topLeading)
-                                    .padding(15)
-                                    .background(Color(red: 247/255, green: 54/255, blue: 109/255))
-                                    .cornerRadius(10)
-                                    .font(Font.custom("Parkinsans",size: 20))
-                                
+                                ZStack{
+                                    Text("Chave Pix")
+                                        .padding(.leading, 32)
+                                        .foregroundColor(.white)
+                                        .frame(width: 300, alignment: .leading)
+                                        .padding(15)
+                                        .background(Color("corPrincipal"))
+                                        .cornerRadius(10)
+                                        .font(Font.custom("Rubik",size: 20))
+                                    
+                                    Image("chave")
+                                        .padding(.trailing, 280)
+                                }
                             }
                             .navigationDestination(isPresented: $irHome){
                                 TelaPrincipal()
                             }
-                            
                         }
-                        
                         
                     }
                     .padding(.bottom, 40)
@@ -100,12 +117,13 @@ struct TelaPix: View {
                         VStack(){
                             //Favoritos
                             Text("Favoritos")
-                                .font(Font.custom("Parkinsans",size: 18))
-                                .foregroundColor(Color(red: 247/255, green: 54/255, blue: 109/255))
+                                .font(Font.custom("Rubik",size: 18))
+                                .foregroundColor(Color("corPrincipal"))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading, 35)
                                 .padding(.bottom, 15)
                                 .padding(.top, 30)
+                                .fontWeight(.semibold)
                             
                             HStack{
                                 ZStack(alignment: .topLeading){
@@ -114,23 +132,23 @@ struct TelaPix: View {
                                     Rectangle()
                                         .foregroundColor(.clear)
                                         .frame(width: 150, height: 158)
-                                        .background(Color(red: 0.85, green: 0.85, blue: 0.85))
+                                        .background(Color(.lightGray).opacity(0.4))
                                         .cornerRadius(10)
                                     VStack(alignment: .leading){
-                                        Text("Nome")
-                                            .font(Font.custom("Parkinsans",size: 25))
-                                            .fontWeight(.bold)
+                                        Text("João")
+                                            .font(Font.custom("Rubik",size: 25))
+                                            .fontWeight(.semibold)
                                         
-                                        Text("Fulano")
-                                            .font(Font.custom("Parkinsans",size: 25))
-                                            .fontWeight(.bold)
+                                        Text("Pedro")
+                                            .font(Font.custom("Rubik",size: 25))
+                                            .fontWeight(.semibold)
                                             .padding(.bottom, 5)
                                         
-                                        Text("Banco")
-                                            .font(Font.custom("Parkinsans",size: 12))
+                                        Text("Nubank")
+                                            .font(Font.custom("Rubik",size: 12))
                                         
-                                        Text("000.000.000-00")
-                                            .font(Font.custom("Parkinsans",size: 12))
+                                        Text("123.123.123-12")
+                                            .font(Font.custom("Rubik",size: 12))
                                     }
                                     .padding(.leading, 15)
                                     .padding(.top, 15)
@@ -142,23 +160,23 @@ struct TelaPix: View {
                                     Rectangle()
                                         .foregroundColor(.clear)
                                         .frame(width: 150, height: 158)
-                                        .background(Color(red: 0.85, green: 0.85, blue: 0.85))
+                                        .background(Color(.lightGray).opacity(0.4))
                                         .cornerRadius(10)
                                     VStack(alignment: .leading){
-                                        Text("Nome")
-                                            .font(Font.custom("Parkinsans",size: 25))
+                                        Text("Ana")
+                                            .font(Font.custom("Rubik",size: 25))
                                             .fontWeight(.bold)
                                         
-                                        Text("Fulano")
-                                            .font(Font.custom("Parkinsans",size: 25))
+                                        Text("Laura")
+                                            .font(Font.custom("Rubik",size: 25))
                                             .fontWeight(.bold)
                                             .padding(.bottom, 5)
                                         
-                                        Text("Banco")
-                                            .font(Font.custom("Parkinsans",size: 12))
+                                        Text("Inter")
+                                            .font(Font.custom("Rubik",size: 12))
                                         
-                                        Text("000.000.000-00")
-                                            .font(Font.custom("Parkinsans",size: 12))
+                                        Text("321.321.321-32")
+                                            .font(Font.custom("Rubik",size: 12))
                                     }
                                     .padding(.leading, 15)
                                     .padding(.top, 15)
@@ -179,7 +197,9 @@ struct TelaPix: View {
                             }
                             .padding(.top, 15)
                         }}
-                }}}
+                }}
+            Spacer()
+        }
     }
 }
 #Preview {

@@ -27,8 +27,8 @@ struct LerQRCode: View {
                 Spacer()
                 
                 Text("Escanear código QR")
-                    .font(Font.custom(  "Parkinsans", size: 20))
-                    .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                    .font(Font.custom("Rubik", size: 20))
+                    .foregroundColor(Color("corPrincipal"))
                     .padding(.bottom, 35)
                 
                 Rectangle()

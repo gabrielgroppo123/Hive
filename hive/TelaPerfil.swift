@@ -8,26 +8,28 @@
 import SwiftUI
 
 struct TelaPerfil: View {
-    @State var irHome: Bool = false
+    @State var dados: Bool = false
+    @State var voltar: Bool = false
+    @State var faq: Bool = false
+    @State var sair: Bool = false
     var body: some View {
         VStack {
-            //SetaVoltar
-            Button(action: { irHome = true }) {
+            Button(action:{
+                voltar = true
+            }) {
                 Image("seta voltar")
-            }
-            .buttonStyle(.plain)
-            .navigationDestination(isPresented: $irHome) {
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 35)
+                    .padding(.bottom, 25)
+                    .padding(.top, 50)
+            }.navigationDestination(isPresented:$voltar){
                 TelaPrincipal()
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.leading, 35)
-            .padding(.bottom, 25)
-            
             
             HStack{
                 Text("Meu Perfil")
-                    .font(.system(size: 40))
-                    .fontWeight(.bold)
+                    .font(.custom("Parkinsans", size: 40))
+                    .fontWeight(.semibold)
                     .foregroundColor(
                         Color(
                             red: 247/255,
@@ -38,7 +40,7 @@ struct TelaPerfil: View {
                     .padding(.leading, 35)
                     .padding(.bottom, 25)
                 
-                
+                Spacer()
                 
             }
             
@@ -47,8 +49,9 @@ struct TelaPerfil: View {
                     .resizable()
                     .frame(width: 70, height: 70)
                 
-                Label("Nome", systemImage: "nome")
-                    .font(.system(size: 28))
+                Label("Gabriel Groppo", systemImage: "nome")
+                  //.font(.system(size: 28))
+                    .font(.custom("Rubik", size:26))
                 
                 Spacer()
                         
@@ -60,7 +63,7 @@ struct TelaPerfil: View {
             VStack{
                 HStack{
                     Text("Número da conta")
-                        .font(.system(size: 19))
+                        .font(.custom("Rubik", size: 19))
                         .fontWeight(.regular)
                         .foregroundColor(
                             Color(.darkGray))
@@ -69,7 +72,7 @@ struct TelaPerfil: View {
                         .padding(.bottom, 10)
                     Spacer()
                     Text("234578-2")
-                        .font(.system(size: 19))
+                        .font(.custom("Rubik", size: 19))
                         .fontWeight(.regular)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, 35)
@@ -77,7 +80,7 @@ struct TelaPerfil: View {
                 }
                 HStack{
                     Text("Agência")
-                        .font(.system(size: 19))
+                        .font(.custom("Rubik", size: 19))
                         .fontWeight(.regular)
                         .foregroundColor(
                             Color(.darkGray))
@@ -86,7 +89,7 @@ struct TelaPerfil: View {
                         .padding(.bottom, 10)
                     Spacer()
                     Text("0001")
-                        .font(.system(size: 19))
+                        .font(.custom("Rubik", size: 19))
                         .fontWeight(.regular)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, 35)
@@ -94,7 +97,7 @@ struct TelaPerfil: View {
                 }
                 HStack{
                     Text("Banco")
-                        .font(.system(size: 19))
+                        .font(.custom("Rubik", size: 19))
                         .fontWeight(.regular)
                         .foregroundColor(
                             Color(.darkGray))
@@ -103,7 +106,7 @@ struct TelaPerfil: View {
                         .padding(.bottom, 20)
                     Spacer()
                     Text("335-hive")
-                        .font(.system(size: 19))
+                        .font(.custom("Rubik", size: 19))
                         .fontWeight(.regular)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, 35)
@@ -111,80 +114,88 @@ struct TelaPerfil: View {
                 }
                 
                 Button(action:{
-                    print("Informacoes pessoais")
+                    dados = true
                         
                 }){
                     VStack(alignment: .leading){
                         Text("Dados pessoais")
-                            
+                            //.padding(.leading, 19)
                             .foregroundColor(.white)
-                            .fontWeight(.bold)
-                            .font(.system(size: 20))
-                            
-                            .padding(.vertical, 15)
+                            .fontWeight(.semibold)
+                            .font(.custom("Rubik", size: 20))
+                            .padding(.trailing, 134)
+                            //.padding(.vertical, 15)
                             .frame(width: 320, height: 60)
                             .background(Color(red: 0.97, green: 0.21, blue: 0.43))
-                            .cornerRadius(11)
-                            
+                            .cornerRadius(12)
+                    }.navigationDestination(isPresented: $dados){
+                        DadosPessoais()
                     }
-                        .padding(.bottom, 5)
+                        //.padding(.bottom, 5)
                 }
  
                 Button(action:{
-                    print("Voltar")
+                    faq = true
                 }){
                     VStack(alignment: .leading){
                         Text("Dúvidas frequentes")
-                           
+                            //.padding(.leading, 19)
                             .foregroundColor(.white)
-                            .fontWeight(.bold)
-                            .font(.system(size: 20))
-                            
-                            .padding(.top, 15)
-                            .padding(.bottom, 17)
+                            .fontWeight(.semibold)
+                            .font(.custom("Rubik", size: 20))
+                            .padding(.trailing, 90)
+                            //.padding(.top, 15)
+                            //.padding(.bottom, 17)
                             .frame(width: 320, height: 60)
-                            .background(Color(red: 0.97, green: 0.21, blue: 0.43))
-                            .cornerRadius(11)
+                            .background(Color("corPrincipal"))
+                            .cornerRadius(12)
+                    }.navigationDestination(isPresented: $faq){
+                        //FAQ()
                     }
                        .padding(.bottom, 10)
                 }
-            }.padding(.vertical)
+            }
+            .padding(.vertical)
             
             
             Rectangle()
               .foregroundColor(.clear)
               .frame(width: 320, height: 2)
-              .background(.black.opacity(0.11))
+              .background(.gray.opacity(0.1))
             
             HStack{
                 Image("duvida")
                 Label("Central de Ajuda",systemImage: "Ajuda")
-                    .font(.system(size: 17))
+                    .font(.custom("Rubik", size: 17))
                     .fontWeight(.regular)
                     .foregroundColor(Color(.darkGray))
-                    .padding(.leading, -8)
+                    .padding(.leading, -5)
                 Spacer()
     
             }.padding(.horizontal, 35)
                 .padding(.vertical, 5)
                 .padding(.top, 10)
             
-            HStack{
+            Button(action:{
+                sair = true
+            }){HStack{
                 Image("sair")
                 Label("Sair da Conta",systemImage: "Sair")
-                    .font(.system(size: 17))
+                    .font(.custom("Rubik", size: 17))
                     .fontWeight(.regular)
                     .foregroundColor(Color(.darkGray))
-                    .padding(.leading, -8)
+                    .padding(.leading, -5)
                 Spacer()
-            }.padding(.horizontal, 35)
+            }.navigationDestination(isPresented:$sair){
+                TelaLogin()
+            }
+            }
+                .padding(.horizontal, 35)
         }
-        .navigationBarBackButtonHidden(true)
+        Spacer()
     }
-    
 }
     
 #Preview {
         TelaPerfil()
-
 }

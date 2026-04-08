@@ -12,7 +12,7 @@ struct TelaCarregamento: View {
                 ZStack {
                     LinearGradient(
                         colors: [
-                            Color(red: 247/255, green: 54/255, blue: 109/255),
+                            Color("corPrincipal"),
                             Color(red: 247/255, green: 108/255, blue: 100/255)
                         ],
                         startPoint: .topLeading,
