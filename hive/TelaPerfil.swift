@@ -8,34 +8,31 @@
 import SwiftUI
 
 struct TelaPerfil: View {
+    @Environment(\.dismiss) var dismiss
     @State var dados: Bool = false
     @State var voltar: Bool = false
     @State var faq: Bool = false
     @State var sair: Bool = false
     var body: some View {
         VStack {
-            Button(action:{
-                voltar = true
-            }) {
-                Image("seta voltar")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 35)
-                    .padding(.bottom, 25)
-                    .padding(.top, 50)
-            }.navigationDestination(isPresented:$voltar){
-                TelaPrincipal()
-            }
-            
+//            Button(action:{
+//                voltar = true
+//            }) {
+//                Image("seta voltar")
+//                    .frame(maxWidth: .infinity, alignment: .leading)
+//                    .padding(.leading, 35)
+//                    .padding(.bottom, 25)
+//                    .padding(.top, 50)
+//            }.navigationDestination(isPresented:$voltar){
+//                TelaPrincipal()
+//            }
+//            
             HStack{
                 Text("Meu Perfil")
                     .font(.custom("Parkinsans", size: 40))
                     .fontWeight(.semibold)
                     .foregroundColor(
-                        Color(
-                            red: 247/255,
-                            green: 54/255,
-                            blue: 109/255,
-                        ))
+                        Color("corPrincipal"))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 35)
                     .padding(.bottom, 25)
@@ -126,7 +123,7 @@ struct TelaPerfil: View {
                             .padding(.trailing, 134)
                             //.padding(.vertical, 15)
                             .frame(width: 320, height: 60)
-                            .background(Color(red: 0.97, green: 0.21, blue: 0.43))
+                            .background(Color("corPrincipal"))
                             .cornerRadius(12)
                     }.navigationDestination(isPresented: $dados){
                         DadosPessoais()
@@ -193,6 +190,18 @@ struct TelaPerfil: View {
                 .padding(.horizontal, 35)
         }
         Spacer()
+        
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarColorScheme(.dark, for: .navigationBar) // força ícones claros
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: { dismiss() }) {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(Color("corPrincipal"))
+                    }
+                }
+            }
+            .navigationBarBackButtonHidden(true)
     }
 }
     

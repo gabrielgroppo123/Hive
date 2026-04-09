@@ -16,6 +16,7 @@ struct Info {
 }
 
 struct DadosPessoais: View {
+    @Environment(\.dismiss) var dismiss
     @State var voltar: Bool = false
     let usuario = Info(
         nome:"Ana Clara Fornazier Rocha",
@@ -27,17 +28,17 @@ struct DadosPessoais: View {
     
     var body: some View {
         VStack {
-            Button(action:{
-                voltar = true
-            }) {
-                Image("seta voltar")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
-                    .padding(.bottom, 35)
-                    .padding(.top,50)
-            }.navigationDestination(isPresented:$voltar){
-                TelaPerfil()
-            }
+//            Button(action:{
+//                voltar = true
+//            }) {
+//                Image("seta voltar")
+//                    .frame(maxWidth: .infinity, alignment: .leading)
+//                    .padding(.leading, 20)
+//                    .padding(.bottom, 35)
+//                    .padding(.top,50)
+//            }.navigationDestination(isPresented:$voltar){
+//                TelaPerfil()
+//            }
             
             Text("Dados pessoais")
                 .font(.custom("Parkinsans", size: 38))
@@ -151,6 +152,17 @@ struct DadosPessoais: View {
             }
                 
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar) // força ícones claros
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Color("corPrincipal"))
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
         Spacer()
     }
 }

@@ -14,7 +14,7 @@ struct TelaPrincipal: View {
     @State private var irParaPerfil: Bool = false
     
     var body: some View {
-        NavigationStack {
+       
             ZStack(alignment: .bottom) {
                 
                 // Todo o conteúdo da home
@@ -241,7 +241,7 @@ struct TelaPrincipal: View {
             .navigationBarHidden(true)
         }
     }
-}
+
 
 #Preview {
     TelaPrincipal()

@@ -7,7 +7,9 @@
 
 import SwiftUI
 //@available(*, deprecated)
+
 struct CriarConta: View {
+    @Environment(\.dismiss) var dismiss
     @State var irLogin: Bool = false
     @State var irHome: Bool = false
     @State var nome: String = ""
@@ -23,10 +25,10 @@ struct CriarConta: View {
     @State var irPin: Bool = false
     
     func formatarTelefone(_ value: String) -> String {
-       
+        
         let numeros = value.filter { $0.isNumber }
         
-       
+        
         let limitado = String(numeros.prefix(11))
         
         var resultado = ""
@@ -38,9 +40,9 @@ struct CriarConta: View {
         }
         return resultado
     }
-
+    
     func formatarCPF(_ value: String) -> String {
-      
+        
         let numeros = value.filter { $0.isNumber }
         
         
@@ -57,19 +59,20 @@ struct CriarConta: View {
     }
     
     var body: some View {
+        
         VStack {
-            //SetaVoltar
-            Button(action: { irLogin = true }) {
-                Image("seta voltar")
-            }
-            .buttonStyle(.plain)
-            .navigationDestination(isPresented: $irLogin) {
-                TelaLogin()
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.leading, 35)
-            .padding(.bottom, 25)
-            .padding(.top, 50)
+            //            //SetaVoltar
+            //            Button(action: { irLogin = true }) {
+            //                Image("seta voltar")
+            //            }
+            //            .buttonStyle(.plain)
+            //            .navigationDestination(isPresented: $irLogin) {
+            //                TelaLogin()
+            //            }
+            //            .frame(maxWidth: .infinity, alignment: .leading)
+            //            .padding(.leading, 35)
+            //            .padding(.bottom, 25)
+            //            .padding(.top, 50)
             
             //Criar Conta
             Text("Criar Conta")
@@ -89,7 +92,7 @@ struct CriarConta: View {
                 .padding(.horizontal, 35)
                 .frame(width: 400)
                 .font(Font.custom("Rubik", size: 17))
-                
+            
             // Campo CPF
             TextField("CPF", text: $cpf)
                 .padding(10)
@@ -100,7 +103,7 @@ struct CriarConta: View {
                 .keyboardType(.numberPad)
                 .textInputAutocapitalization(.never)
                 .font(Font.custom("Rubik", size: 17))
-                
+            
                 .onChange(of: cpf) { newValue in
                     cpf = formatarCPF(newValue)
                 }
@@ -184,7 +187,7 @@ struct CriarConta: View {
                 
                 Button(action: { mostrarSenha.toggle() }) {
                     Image(mostrarSenha ? "olhoCinza" : "olhoFechadoCinza")
-                        
+                    
                 }
             }
             .padding(10)
@@ -262,13 +265,23 @@ struct CriarConta: View {
             .navigationDestination(isPresented: $irPin){
                 DefinirPin()
             }
-            Spacer()
+            
         }
-        Spacer()
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar) // força ícones claros
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Color("corPrincipal"))
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea(.keyboard)
     }
-    
 }
+
 
 #Preview {
     CriarConta()

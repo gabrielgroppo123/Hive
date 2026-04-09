@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct Carteira: View {
+    @State var mostrarSaldo: Bool = false
+    
     var body: some View {
         ZStack {
-            // Fundo gradiente com bordas arredondadas
+            // Fundo gradiente
             LinearGradient(
                 stops: [
                     Gradient.Stop(color: Color("corPrincipal"), location: 0.00),
@@ -41,13 +43,14 @@ struct Carteira: View {
                     Text("Saldo")
                         .foregroundColor(.white)
                         .font(Font.custom("Parkinsans", size: 22))
-                        .fontWeight(.regular)
                     Spacer()
-                    Image("olhoAberto")
+                    Button(action: { mostrarSaldo.toggle() }) {
+                        Image(mostrarSaldo ? "olhoAberto" : "olhoFechado")
+                    }
                 }
                 .padding(.horizontal, 30)
 
-                Text("R$ 1.000,00")
+                Text(mostrarSaldo ? "R$ 1.000,00" : "R$ ••••••")
                     .foregroundColor(.white)
                     .font(Font.custom("Parkinsans", size: 40))
                     .padding(.horizontal, 30)
@@ -94,6 +97,7 @@ struct Carteira: View {
                         }
                     }
                     .padding(.horizontal, 30)
+                    
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Transação")
@@ -110,13 +114,13 @@ struct Carteira: View {
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
                                 .font(Font.custom("Parkinsans", size: 21))
-                            
                             Text("Data")
                                 .foregroundColor(.white)
                                 .font(Font.custom("Parkinsans", size: 18))
                         }
                     }
                     .padding(.horizontal, 30)
+                    
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Transação")
@@ -142,9 +146,9 @@ struct Carteira: View {
                 }
 
                 Spacer()
-            }
+            }  // ← VStack fecha aqui
             .frame(width: 393, height: 897)
-        }
+        }  // ← ZStack fecha aqui
         .frame(width: 393, height: 897)
     }
 }
