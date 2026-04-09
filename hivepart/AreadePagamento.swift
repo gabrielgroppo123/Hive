@@ -31,9 +31,9 @@ struct AreadePagamento: View {
                         .font(.custom("Rubik", size: 18))
                     Spacer()
                     Text("R$ 1.000,00")
-                        .font(.system(size: 18))
+                        .font(.custom("Rubik", size: 18))
                         .foregroundColor(Color(.darkGray))
-                    Image("olho1")
+                    Image("olho")
                 }.padding(.horizontal, 35)
                 
                 Rectangle()
@@ -57,7 +57,7 @@ struct AreadePagamento: View {
                     Text("Ana Clara Rocha")
                         .font(.custom("Rubik", size: 16))
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
                         .foregroundColor(Color(.corPrincipal))
                     
                 }.padding(.bottom, 300)
@@ -73,11 +73,8 @@ struct AreadePagamento: View {
                 VStack(alignment: .leading){
                     Text("Confirmar")
                         .foregroundColor(.white)
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
                         .font(.custom("Rubik", size: 20))
-                        //.padding(.horizontal, 12)
-                        //.padding(.vertical, 15)
-                        //.padding(.bottom, 17)
                         .frame(width: 320, height: 60)
                         .background(Color(.corPrincipal))
                         .cornerRadius(12)
@@ -89,7 +86,7 @@ struct AreadePagamento: View {
         }
         .padding(.bottom, 10)
         .ignoresSafeArea(.keyboard)
-        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden(false)
     }
     
 }

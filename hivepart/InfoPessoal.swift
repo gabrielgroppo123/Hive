@@ -20,157 +20,135 @@ struct InfoPessoal: View {
     let usuario = Info(
         nome:"Ana Clara Fornazier Rocha",
         email:"pedro.hhteruel@senacsp.edu.br",
-        tel:"(11)99243-0550",
+        tel:"(11) 99243-0550",
         end:"Av. Nações Unidas, 1145",
         cpf:"303.086.468-01"
     )
     
     var body: some View {
         VStack {
-            Button(action:{
-                voltar = true
-            }) {
-                Image("seta")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
-                    .padding(.bottom, 35)
-            }.navigationDestination(isPresented:$voltar){
-                Perfil()
-            }
             
+            Spacer()
+//
             Text("Dados pessoais")
-                .font(.system(size: 38))
+                .font(.custom("Parkinsans", size: 38))
                 .fontWeight(.bold)
-                .foregroundColor(
-                    Color(
-                        red: 247/255,
-                        green: 54/255,
-                        blue: 109/255,
-                    ))
+                .foregroundStyle(Color("corPrincipal"))
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 20)
-                .padding(.bottom, 30)
+                .padding(.leading, 35)
+                .padding(.bottom, 70)
+                .padding(.top, 30)
             
-            VStack (){
-                Text("Nome:")
-                    .font(.system(size: 22))
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
-               Text(usuario.nome)
-                    .font(.system(size: 22))
-                    .fontWeight(.regular)
-                    .foregroundColor(
-                        Color(.gray))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
-                    .padding(.bottom, )
-            //}
+            //Spacer()
             
-            //VStack {
-                Text("E-mail:")
-                    .font(.system(size: 22))
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
+            VStack{
+                VStack (){
+                    Text("Nome:")
+                        .font(.custom("Rubik", size: 20))
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 35)
+                    Text(usuario.nome)
+                        .font(.custom("Rubik", size: 18))
+                        .fontWeight(.regular)
+                        .foregroundColor(
+                            Color(.gray))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 35)
+                        .padding(.bottom, )
+                    //}
                     
-                Text(usuario.email)
-                    .font(.system(size: 22))
-                    .fontWeight(.regular)
-                    .foregroundColor(
-                        Color(.gray))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
-                    .padding(.bottom)
-            //}
-            
-            //VStack {
-                Text("Telefone:")
-                    .font(.system(size: 22))
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
+                    //VStack {
+                    Text("E-mail:")
+                        .font(.custom("Rubik", size: 20))
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 35)
                     
-                Text(usuario.tel)
-                    .font(.system(size: 22))
-                    .fontWeight(.regular)
-                    .foregroundColor(
-                        Color(.gray))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
-                    .padding(.bottom, )
-            //}
-            
-            //VStack {
-                Text("Endereço:")
-                    .font(.system(size: 22))
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
+                    Text(usuario.email)
+                        .font(.custom("Rubik", size: 18))
+                        .fontWeight(.regular)
+                        .foregroundColor(
+                            Color(.gray))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 35)
+                        .padding(.bottom)
+                    //}
                     
-                Text(usuario.end)
-                    .font(.system(size: 22))
-                    .fontWeight(.regular)
-                    .foregroundColor(
-                        Color(.gray))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
-                    .padding(.bottom, )
-            //}
-            
-            //VStack {
-                Text("CPF/CNPJ:")
-                    .font(.system(size: 22))
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
+                    //VStack {
+                    Text("Telefone:")
+                        .font(.custom("Rubik", size: 20))
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 35)
                     
-                Text(usuario.cpf)
-                    .font(.system(size: 22))
-                    .fontWeight(.regular)
-                    .foregroundColor(
-                        Color(.gray))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
-                    .padding(.bottom, )
-            } .padding(.bottom, 30)
-            
-            
-            Button(action:{
-                print("Editar")
-            }){
-                VStack(alignment: .leading){
-                    Text("Editar")
-                        //.padding(.leading, 19)
-                        .foregroundColor(.white)
-                        .fontWeight(.bold)
-                        .font(.system(size: 20))
-                        //.padding(.trailing, 13)
-                        //.padding(.top, 15)
-                        //.padding(.bottom, 17)
-                        .frame(width: 105.30144, height: 48.88995, alignment: .center)
-                        .background(Color(red: 0.97, green: 0.21, blue: 0.43))
-                        .cornerRadius(11)
-                } .padding(.trailing, 210)
-                    .padding(.bottom, 65)
-                   
+                    Text(usuario.tel)
+                        .font(.custom("Rubik", size: 18))
+                        .fontWeight(.regular)
+                        .foregroundColor(
+                            Color(.gray))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 35)
+                        .padding(.bottom, )
+                    //}
+                    
+                    //VStack {
+                    Text("Endereço:")
+                        .font(.custom("Rubik", size: 20))
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 35)
+                    
+                    Text(usuario.end)
+                        .font(.custom("Rubik", size: 18))
+                        .fontWeight(.regular)
+                        .foregroundColor(
+                            Color(.gray))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 35)
+                        .padding(.bottom, )
+                    //}
+                    
+                    //VStack {
+                    Text("CPF/CNPJ:")
+                        .font(.custom("Rubik", size: 20))
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 35)
+                    
+                    Text(usuario.cpf)
+                        .font(.custom("Rubik", size: 18))
+                        .fontWeight(.regular)
+                        .foregroundColor(
+                            Color(.gray))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 35)
+                } .padding(.bottom, 40)
                 
                 
-                
-                //Text("Editar")
-                   //.
-//                    .foregroundColor(.clear)
-//                    .frame(width: 105.30144, height: 48.88995)
-//                    .background(Color(red: 0.97, green: 0.21, blue: 0.43))
-//                    .cornerRadius(11)
-//                    .frame(maxWidth: .infinity, alignment: .leading)
-//                    .padding(.leading, 20)
-//                    .padding(.bottom, )
-                    
+                Button(action:{
+                    print("Editar")
+                }){
+                    VStack(alignment: .leading){
+                        HStack{
+                            Text("Editar")
+                            //.padding(.leading, 19)
+                                .foregroundColor(.white)
+                                .fontWeight(.semibold)
+                                .font(.custom("Rubik", size: 20))
+                                //.padding(.trailing, 40)
+                            //.padding(.vertical, 15)
+                                .frame(width: 125, height: 50)
+                                .background(Color("corPrincipal"))
+                                .cornerRadius(11)
+                            Spacer()
+                        }.padding(.horizontal, 35)
+                    }
+                }
             }
-                
+            Spacer()
+            Spacer()
         }
-        .padding()
     }
 }
 

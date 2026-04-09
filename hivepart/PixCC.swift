@@ -17,24 +17,10 @@ struct PixCC: View {
         VStack{
             
             VStack{
-                Button(action:{
-                    voltar = true
-                }) {
-                    Image("seta")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 35)
-                }.navigationDestination(isPresented: $voltar){
-                    AreaBoleto()
-                }
-                .padding(.bottom, 50)
-                
                 HStack{
                     Text("Copia e Cola")
-                        .font(.system(size: 18))
+                        .font(.custom("Rubik", size: 18))
                     Spacer()
-                    //Text("Colar")
-                      //  .font(.system(size: 18))
-                        //.foregroundColor(.gray)
                 }.padding(.horizontal, 35)
                 
                 TextField("", text: $valor)
@@ -43,23 +29,25 @@ struct PixCC: View {
                     .cornerRadius(10)
                     //.padding(.horizontal, 30)
                     .frame(width: 320)
-                    .padding(.bottom, 350)
+                    //.padding(.bottom, 350)
                 
-            }//.padding(.top, 20)
+            }.padding(.top, 100)
   
+            Spacer()
+            
             Button(action:{
                 confirmar = true
             }){
                 VStack(alignment: .leading){
                     Text("Confirmar")
                         .foregroundColor(.white)
-                        .fontWeight(.bold)
-                        .font(.system(size: 20))
+                        .fontWeight(.semibold)
+                        .font(.custom("Rubik", size: 20))
                         //.padding(.horizontal, 12)
                         .padding(.vertical, 15)
                         //.padding(.bottom, 17)
                         .frame(width: 320, height: 60)
-                        .background(Color(red: 0.97, green: 0.21, blue: 0.43))
+                        .background(Color("corPrincipal"))
                         .cornerRadius(12)
                 }.navigationDestination(isPresented: $confirmar){
                     Confirmar()
@@ -68,8 +56,6 @@ struct PixCC: View {
             }
         }
         .padding(.bottom, 50)
-        .ignoresSafeArea(.keyboard)
-        .navigationBarBackButtonHidden(true)
     }
     
 }
