@@ -36,7 +36,7 @@ struct TelaPrincipal: View {
                         }
                         .buttonStyle(.plain)
                         .navigationDestination(isPresented: $irParaPerfil) {
-                            TelaPerfil()
+                            Perfil()
                         }
                         .padding(.trailing, 35)
                     }
@@ -140,7 +140,7 @@ struct TelaPrincipal: View {
                                 }
                                 .buttonStyle(.plain)
                                 .navigationDestination(isPresented: $irParaBoleto) {
-                                    TelaBoleto()
+                                    AreaBoleto()
                                 }
                                 
                                 //Investir

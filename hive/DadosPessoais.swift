@@ -28,18 +28,7 @@ struct DadosPessoais: View {
     
     var body: some View {
         VStack {
-//            Button(action:{
-//                voltar = true
-//            }) {
-//                Image("seta voltar")
-//                    .frame(maxWidth: .infinity, alignment: .leading)
-//                    .padding(.leading, 20)
-//                    .padding(.bottom, 35)
-//                    .padding(.top,50)
-//            }.navigationDestination(isPresented:$voltar){
-//                TelaPerfil()
-//            }
-            
+
             Text("Dados pessoais")
                 .font(.custom("Parkinsans", size: 38))
                 .fontWeight(.bold)

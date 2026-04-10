@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DefinirPin: View {
+struct DigitePin: View {
     @Environment(\.dismiss) var dismiss
 
     @State private var pin: String = ""
@@ -9,14 +9,16 @@ struct DefinirPin: View {
     var body: some View {
         VStack(alignment: .leading) {
 
-            Text("Defina seu PIN para\nrealizar pagamento")
-                .font(Font.custom("Parkinsans", size: 30))
+            
+
+            Text("Digite seu PIN")
+                .font(Font.custom("Parkinsans", size: 35))
                 .fontWeight(.bold)
                 .foregroundColor(Color("corPrincipal"))
                 .padding(.leading, 35)
                 .padding(.bottom, 40)
                 .padding(.top, 100)
-
+            
             // PIN VISUAL (4 quadrados)
             HStack(spacing: 16) {
                 ForEach(0..<4) { i in
@@ -37,7 +39,6 @@ struct DefinirPin: View {
                             .fontWeight(.bold)
                             .opacity(getDigit(i).isEmpty ? 0 : 1)
                             .frame(maxWidth: .infinity)
-                            
                     }
                 }
             }
@@ -74,7 +75,7 @@ struct DefinirPin: View {
         .onAppear {
             isFocused = true
         }
-        //.ignoresSafeArea(.keyboard)
+        
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -96,6 +97,6 @@ struct DefinirPin: View {
 }
 
 #Preview {
-    DefinirPin()
+    DigitePin()
 }
 

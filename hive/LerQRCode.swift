@@ -13,29 +13,17 @@ struct LerQRCode: View {
     var body: some View {
         
         VStack{
-            //                //SetaVoltar
-            //                Button(action: { irParaPix = true }) {
-            //                    Image("seta voltar")
-            //                }
-            //                .buttonStyle(.plain)
-            //                .navigationDestination(isPresented: $irParaPix) {
-            //                    TelaPix()
-            //                }
-            //                .frame(maxWidth: .infinity, alignment: .leading)
-            //                .padding(.leading, 35)
-            //                .padding(.bottom, 10)
-            //                .padding(.top, 30)
             Spacer()
             
             Text("Escanear código QR")
                 .font(Font.custom("Rubik", size: 20))
-                .foregroundColor(Color("corPrincipal"))
+                .foregroundColor(Color(.gray))
                 .padding(.bottom, 35)
             
             Rectangle()
                 .foregroundColor(.clear)
-                .frame(width: 260.29871, height: 289.22076)
-                .background(Color(red: 0.85, green: 0.85, blue: 0.85))
+                .frame(width: 260, height: 290)
+                .background(Color(.lightGray))
                 .padding(.bottom, 45)
             //Pix
             Button(action: { irParaPix = true }) {

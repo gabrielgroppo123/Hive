@@ -8,6 +8,7 @@ import SwiftUI
 
 @main
 struct hiveApp: App {
+    
     var body: some Scene {
         WindowGroup {
             TelaCarregamento()
