@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-//@available(*, deprecated)
+
 
 struct CriarConta: View {
     @Environment(\.dismiss) var dismiss
@@ -103,10 +103,9 @@ struct CriarConta: View {
                 .keyboardType(.numberPad)
                 .textInputAutocapitalization(.never)
                 .font(Font.custom("Rubik", size: 17))
-            
-                .onChange(of: cpf) { newValue in
-                    cpf = formatarCPF(newValue)
-                }
+                .onChange(of: cpf) { oldValue, newValue in
+                cpf = formatarCPF(newValue)
+            }
             // Campo email
             TextField("E-mail", text: $email)
                 .padding(10)
@@ -126,7 +125,7 @@ struct CriarConta: View {
                 .keyboardType(.numberPad)
                 .textInputAutocapitalization(.never)
                 .font(Font.custom("Rubik", size: 17))
-                .onChange(of: telefone) { newValue in
+                .onChange(of: telefone) { oldValue, newValue in
                     telefone = formatarTelefone(newValue)
                 }
             // Campo datanascimento
