@@ -35,6 +35,7 @@ struct AreadePagamento: View {
                         .foregroundColor(Color(.darkGray))
                     Image("olho")
                 }.padding(.horizontal, 35)
+                    .padding(.top, 100)
                 
                 Rectangle()
                   .foregroundColor(.clear)
@@ -65,7 +66,7 @@ struct AreadePagamento: View {
                 
             }//.padding(.top, 20)
   
-            
+            Spacer()
             
             Button(action:{
                 confirmar = true
@@ -81,12 +82,10 @@ struct AreadePagamento: View {
                 }.navigationDestination(isPresented: $confirmar){
                     //ConfirmarPin
                 }
-                .padding(.bottom, 50)
+               // .padding(.bottom, 50)
             }
         }
-        .padding(.bottom, 10)
-        .ignoresSafeArea(.keyboard)
-        .navigationBarBackButtonHidden(false)
+        .padding(.bottom, 50)
     }
     
 }
