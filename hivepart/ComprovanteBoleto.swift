@@ -32,7 +32,7 @@ struct ComprovanteBoleto: View {
                         
                     Text ("São José Restaurante")
                         .font(.custom("Rubik", size: 18))
-                        .fontWeight(.semibold)
+                        .fontWeight(.medium)
                         .foregroundStyle(Color .gray)
                         .padding(.leading, -2)
                 }
@@ -65,7 +65,7 @@ struct ComprovanteBoleto: View {
                         .font(.custom("Rubik", size:14))
                         .foregroundStyle(.gray)
                     Spacer()
-                    Text("10h")
+                    Text("10:00h")
                         .font(.custom("Rubik", size:14))
                 }
                 .padding(.horizontal, 35)
@@ -107,21 +107,13 @@ struct ComprovanteBoleto: View {
                         .font(.custom("Rubik", size:14))
                         .foregroundStyle(.gray)
                     Spacer()
-                    Text("957.263.738-89")
+                    Text("⦁⦁.⦁⦁⦁.909/⦁⦁⦁⦁-42")
                         .font(.custom("Rubik", size:14))
                 }
                 .padding(.horizontal, 35)
                 .padding(.bottom, 10)
                 
-                HStack{
-                    Text("Chave Pix")
-                        .font(.custom("Rubik", size:14))
-                        .foregroundStyle(.gray)
-                    Spacer()
-                    Text("839839403948502")
-                        .font(.custom("Rubik", size:14))
-                }
-                .padding(.horizontal, 35)
+                //.padding(.horizontal, 35)
               //  .padding(.bottom, 30)
             }
             Spacer()
