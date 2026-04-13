@@ -69,7 +69,7 @@ struct Carteira: View {
                 Text("Extrato")
                     .foregroundColor(.white)
                     .font(Font.custom("Parkinsans", size: 32))
-                    .fontWeight(.bold)
+                    .fontWeight(.semibold)
                     .padding(.horizontal, 35)
                     .padding(.bottom, 30)
 
@@ -77,21 +77,21 @@ struct Carteira: View {
                 VStack(spacing: 20) {
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Transação")
+                            Text("Pix")
                                 .foregroundColor(.white)
-                                .fontWeight(.bold)
-                                .font(Font.custom("Parkinsans", size: 21))
-                            Text("Destino")
+                                .fontWeight(.semibold)
+                                .font(Font.custom("Parkinsans", size: 20))
+                            Text("Gabriel Groppo")
                                 .foregroundColor(.white)
                                 .font(Font.custom("Parkinsans", size: 18))
                         }
                         Spacer()
                         VStack(alignment: .trailing, spacing: 4) {
-                            Text("Valor")
+                            Text("+ R$250,00")
                                 .foregroundColor(.white)
-                                .fontWeight(.bold)
-                                .font(Font.custom("Parkinsans", size: 21))
-                            Text("Data")
+                                .fontWeight(.semibold)
+                                .font(Font.custom("Parkinsans", size: 20))
+                            Text("15/04/26")
                                 .foregroundColor(.white)
                                 .font(Font.custom("Parkinsans", size: 18))
                         }
@@ -100,46 +100,46 @@ struct Carteira: View {
                     
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Transação")
+                            Text("Boleto")
                                 .foregroundColor(.white)
-                                .fontWeight(.bold)
-                                .font(Font.custom("Parkinsans", size: 21))
-                            Text("Destino")
+                                .fontWeight(.medium)
+                                .font(Font.custom("Rubik", size: 20))
+                            Text("São José Restaurante")
                                 .foregroundColor(.white)
-                                .font(Font.custom("Parkinsans", size: 18))
+                                .font(Font.custom("Rubik", size: 18))
                         }
                         Spacer()
                         VStack(alignment: .trailing, spacing: 4) {
-                            Text("Valor")
+                            Text("- R$62,89")
                                 .foregroundColor(.white)
-                                .fontWeight(.bold)
-                                .font(Font.custom("Parkinsans", size: 21))
-                            Text("Data")
+                                .fontWeight(.medium)
+                                .font(Font.custom("Rubik", size: 20))
+                            Text("02/01/26")
                                 .foregroundColor(.white)
-                                .font(Font.custom("Parkinsans", size: 18))
+                                .font(Font.custom("Rubik", size: 18))
                         }
                     }
                     .padding(.horizontal, 35)
                     
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Transação")
+                            Text("Pix")
                                 .foregroundColor(.white)
-                                .fontWeight(.bold)
-                                .font(Font.custom("Parkinsans", size: 21))
-                            Text("Destino")
+                                .fontWeight(.medium)
+                                .font(Font.custom("Rubik", size: 20))
+                            Text("Ana Clara Fornazier")
                                 .foregroundColor(.white)
-                                .font(Font.custom("Parkinsans", size: 18))
+                                .font(Font.custom("Rubik", size: 18))
                         }
                         Spacer()
                         VStack(alignment: .trailing, spacing: 4) {
-                            Text("Valor")
+                            Text("- R$1.200,00")
                                 .foregroundColor(.white)
-                                .fontWeight(.bold)
-                                .font(Font.custom("Parkinsans", size: 21))
-                            Text("Data")
+                                .fontWeight(.medium)
+                                .font(Font.custom("Rubik", size: 20))
+                            Text("13/12/25")
                                 .foregroundColor(.white)
-                                .font(Font.custom("Parkinsans", size: 18))
+                                .font(Font.custom("Rubik", size: 18))
                         }
                     }
                     .padding(.horizontal, 35)
