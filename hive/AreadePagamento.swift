@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct AreadePagamento: View {
+    @Environment(\.dismiss) var dismiss
     @State var voltar: Bool = false
     @State var confirmar: Bool = false
     @State var valor: String = ""
@@ -15,26 +16,16 @@ struct AreadePagamento: View {
         VStack{
             
             VStack{
-                Button(action:{
-                    voltar = true
-                }) {
-                    Image("seta")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 35)
-                }.navigationDestination(isPresented: $voltar){
-                    //Depende de onde o usuario vem
-                }
-                .padding(.bottom, 50)
-                
                 HStack{
                     Text("Saldo")
-                        .font(.system(size: 18))
+                        .font(.custom("Rubik", size: 18))
                     Spacer()
                     Text("R$ 1.000,00")
-                        .font(.system(size: 18))
+                        .font(.custom("Rubik", size: 18))
                         .foregroundColor(Color(.darkGray))
-                    Image("olho1")
+                    Image("olho")
                 }.padding(.horizontal, 35)
+                    .padding(.top, 100)
                 
                 Rectangle()
                   .foregroundColor(.clear)
@@ -45,49 +36,57 @@ struct AreadePagamento: View {
                     .padding(10)
                     .background(Color(.systemGray6))
                     .cornerRadius(10)
-                    //.padding(.horizontal, 30)
+                
                     .frame(width: 320)
                     .padding(.top, 50)
                 HStack{
                     Text("Pagar para")
-                        .font(.system(size: 16))
-                        //.frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.custom("Rubik", size: 16))
                         .foregroundColor(Color(.corPrincipal))
                         .padding(.trailing, -3)
                     Text("Ana Clara Rocha")
-                        .font(.system(size: 16))
+                        .font(.custom("Rubik", size: 16))
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
                         .foregroundColor(Color(.corPrincipal))
                     
                 }.padding(.bottom, 300)
                 .padding(.leading, 35)
                 
-            }//.padding(.top, 20)
+            }
   
+            Spacer()
+            
             Button(action:{
                 confirmar = true
             }){
                 VStack(alignment: .leading){
                     Text("Confirmar")
                         .foregroundColor(.white)
-                        .fontWeight(.bold)
-                        .font(.system(size: 20))
-                        //.padding(.horizontal, 12)
-                        //.padding(.vertical, 15)
-                        //.padding(.bottom, 17)
+                        .fontWeight(.semibold)
+                        .font(.custom("Rubik", size: 20))
                         .frame(width: 320, height: 60)
                         .background(Color(.corPrincipal))
                         .cornerRadius(12)
                 }.navigationDestination(isPresented: $confirmar){
-                    //ConfirmarPin
+                    DigitePin()
                 }
-                .padding(.bottom, 50)
+               
             }
         }
-        .padding(.bottom, 10)
-        .ignoresSafeArea(.keyboard)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar) // força ícones claros
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Color("corPrincipal"))
+                }
+            }
+        }
         .navigationBarBackButtonHidden(true)
+        Spacer()
+        .padding(.bottom, 50)
     }
     
 }

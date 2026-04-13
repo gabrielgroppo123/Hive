@@ -61,20 +61,11 @@ struct CriarConta: View {
     var body: some View {
         
         VStack {
-            //            //SetaVoltar
-            //            Button(action: { irLogin = true }) {
-            //                Image("seta voltar")
-            //            }
-            //            .buttonStyle(.plain)
-            //            .navigationDestination(isPresented: $irLogin) {
-            //                TelaLogin()
-            //            }
-            //            .frame(maxWidth: .infinity, alignment: .leading)
-            //            .padding(.leading, 35)
-            //            .padding(.bottom, 25)
-            //            .padding(.top, 50)
+
             
             //Criar Conta
+            Spacer()
+            
             Text("Criar Conta")
                 .font(.custom("Parkinsans", size: 40))
                 .fontWeight(.bold)
@@ -82,126 +73,173 @@ struct CriarConta: View {
                     Color("corPrincipal"))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 35)
-                .padding(.bottom, 25)
+                .padding(.top, 60)
+                
             
             // Campo nome
-            TextField("Nome Completo", text: $nome)
-                .padding(10)
-                .background(Color(.lightGray).opacity(0.25))
-                .cornerRadius(10)
-                .padding(.horizontal, 35)
-                .frame(width: 400)
-                .font(Font.custom("Rubik", size: 17))
+            Spacer()
             
-            // Campo CPF
-            TextField("CPF", text: $cpf)
-                .padding(10)
-                .background(Color(.lightGray).opacity(0.25))
-                .cornerRadius(10)
-                .padding(.horizontal, 35)
-                .frame(width: 400)
-                .keyboardType(.numberPad)
-                .textInputAutocapitalization(.never)
-                .font(Font.custom("Rubik", size: 17))
-                .onChange(of: cpf) { oldValue, newValue in
-                cpf = formatarCPF(newValue)
-            }
-            // Campo email
-            TextField("E-mail", text: $email)
-                .padding(10)
-                .background(Color(.lightGray).opacity(0.25))
-                .cornerRadius(10)
-                .padding(.horizontal, 35)
-                .frame(width: 400)
-                .textInputAutocapitalization(.never)
-                .font(Font.custom("Rubik", size: 17))
-            // Campo Telefone
-            TextField("Número de telefone", text: $telefone)
-                .padding(10)
-                .background(Color(.lightGray).opacity(0.25))
-                .cornerRadius(10)
-                .padding(.horizontal, 35)
-                .frame(width: 400)
-                .keyboardType(.numberPad)
-                .textInputAutocapitalization(.never)
-                .font(Font.custom("Rubik", size: 17))
-                .onChange(of: telefone) { oldValue, newValue in
-                    telefone = formatarTelefone(newValue)
-                }
-            // Campo datanascimento
-            Button(action: { mostrarDatePicker = true }) {
-                HStack {
-                    Text(dataNascimento == nil ? "Data de Nascimento" : dataNascimento!.formatted(date: .numeric, time: .omitted))
-                        .foregroundColor(dataNascimento == nil ? Color(.systemGray2) : .black)
+            VStack{
+                HStack{
+                    Text("Nome Completo:")
+                        .font(Font.custom("Rubik", size: 16))
+                        .padding(.bottom, -1)
+                        .padding(.horizontal, 35)
                     Spacer()
-                }
-                .padding(10)
-                .background(Color(.lightGray).opacity(0.25))
-                .cornerRadius(10)
-                .padding(.horizontal, 35)
-                .frame(width: 400)
-                .font(Font.custom("Rubik", size: 17))
-            }
-            .buttonStyle(.plain)
-            .sheet(isPresented: $mostrarDatePicker) {
-                VStack {
-                    DatePicker(
-                        "Data de Nascimento",
-                        selection: Binding(
-                            get: { dataNascimento ?? Date() },
-                            set: { dataNascimento = $0 }
-                        ),
-                        displayedComponents: .date
-                    )
-                    .datePickerStyle(.graphical)
-                    .tint(Color("corPrincipal"))
-                    .padding()
-                    
-                    Button("Confirmar") {
-                        if dataNascimento == nil {
-                            dataNascimento = Date() // salva a data atual se não escolheu nada
-                        }
-                        mostrarDatePicker = false
-                    }
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 40)
-                    .padding(.vertical, 12)
-                    .background(Color("corPrincipal"))
-                    .cornerRadius(10)
-                    .padding(.bottom, 30)
-                    
-                }
-                .presentationDetents([.medium])
-            }
-            
-            
-            // Campo Senha
-            HStack {
-                if mostrarSenha {
-                    TextField("Senha", text: $senha)
-                        .textInputAutocapitalization(.never)
-                } else {
-                    SecureField("Senha", text: $senha)
                 }
                 
-                Button(action: { mostrarSenha.toggle() }) {
-                    Image(mostrarSenha ? "olhoCinza" : "olhoFechadoCinza")
-                    
-                }
-            }
-            .padding(10)
-            .background(Color(.lightGray).opacity(0.25))
-            .cornerRadius(10)
-            .padding(.horizontal, 35)
-            .frame(width: 400)
-            .font(Font.custom("Rubik", size: 17))
-            
-            // Campo Chave Pix
-            Button(action: { mostrarChavePix = true }) {
-                HStack {
-                    Text(chavePix == nil ? "Selecionar Chave Pix" : chavePix!)
-                        .foregroundColor(chavePix == nil ? Color(.systemGray2) : .black)
+                TextField("Pedro Henrique Hossaka Teruel", text: $nome)
+                    .padding(10)
+                    .background(Color(.lightGray).opacity(0.25))
+                    .cornerRadius(10)
+                    .padding(.horizontal, 35)
+                    .frame(width: 400)
+                    .font(Font.custom("Rubik", size: 17))
+                
+                // Campo CPF
+                HStack{
+                    Text("CPF:")
+                        .font(Font.custom("Rubik", size: 16))
+                        .padding(.bottom, -1)
+                        .padding(.horizontal, 35)
+                        .padding(.top, 5)
                     Spacer()
+                }
+                
+                TextField("393.457.689-01", text: $cpf)
+                    .padding(10)
+                    .background(Color(.lightGray).opacity(0.25))
+                    .cornerRadius(10)
+                    .padding(.horizontal, 35)
+                    .frame(width: 400)
+                    .keyboardType(.numberPad)
+                    .textInputAutocapitalization(.never)
+                    .font(Font.custom("Rubik", size: 17))
+                    .onChange(of: cpf) { oldValue, newValue in
+                        cpf = formatarCPF(newValue)
+                    }
+                
+                
+                HStack{
+                    Text("E-mail:")
+                        .font(Font.custom("Rubik", size: 16))
+                        .padding(.bottom, -1)
+                        .padding(.horizontal, 35)
+                        .padding(.top, 5)
+                    Spacer()
+                }
+                // Campo email
+                TextField("pedrohteruel@gmail﹒com", text: $email)
+                    .padding(10)
+                    .background(Color(.lightGray).opacity(0.25))
+                    .cornerRadius(10)
+                    .padding(.horizontal, 35)
+                    .frame(width: 400)
+                    .autocorrectionDisabled(true)
+                    .textInputAutocapitalization(.never)
+                    .font(Font.custom("Rubik", size: 17))
+            
+                
+                // Campo Telefone
+                HStack{
+                    Text("Número de telefone:")
+                        .font(Font.custom("Rubik", size: 16))
+                        .padding(.bottom, -1)
+                        .padding(.horizontal, 35)
+                        .padding(.top, 5)
+                    Spacer()
+                }
+                TextField("(11) 94567-1234", text: $telefone)
+                    .padding(10)
+                    .background(Color(.lightGray).opacity(0.25))
+                    .cornerRadius(10)
+                    .padding(.horizontal, 35)
+                    .frame(width: 400)
+                    .keyboardType(.numberPad)
+                    .textInputAutocapitalization(.never)
+                    .font(Font.custom("Rubik", size: 17))
+                    .onChange(of: telefone) { oldValue, newValue in
+                        telefone = formatarTelefone(newValue)
+                    }
+                
+                
+                HStack{
+                    Text("Data de Nascimento:")
+                        .font(Font.custom("Rubik", size: 16))
+                        .padding(.bottom, -1)
+                        .padding(.horizontal, 35)
+                        .padding(.top, 5)
+                    Spacer()
+                }
+                
+                // Campo datanascimento
+                Button(action: { mostrarDatePicker = true }) {
+                    HStack {
+                        Text(dataNascimento == nil ? "27/04/26" : dataNascimento!.formatted(date: .numeric, time: .omitted))
+                            .foregroundColor(dataNascimento == nil ? Color(.systemGray2) : .black)
+                        Spacer()
+                    }
+                    .padding(10)
+                    .background(Color(.lightGray).opacity(0.25))
+                    .cornerRadius(10)
+                    .padding(.horizontal, 35)
+                    .frame(width: 400)
+                    .font(Font.custom("Rubik", size: 17))
+                }
+                .buttonStyle(.plain)
+                .sheet(isPresented: $mostrarDatePicker) {
+                    VStack {
+                        DatePicker(
+                            "Data de Nascimento",
+                            selection: Binding(
+                                get: { dataNascimento ?? Date() },
+                                set: { dataNascimento = $0 }
+                            ),
+                            displayedComponents: .date
+                        )
+                        .datePickerStyle(.graphical)
+                        .tint(Color("corPrincipal"))
+                        .padding()
+                        
+                        Button("Confirmar") {
+                            if dataNascimento == nil {
+                                dataNascimento = Date() // salva a data atual se não escolheu nada
+                            }
+                            mostrarDatePicker = false
+                        }
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 40)
+                        .padding(.vertical, 12)
+                        .background(Color("corPrincipal"))
+                        .cornerRadius(10)
+                        .padding(.bottom, 30)
+                        
+                    }
+                    .presentationDetents([.medium])
+                }
+                
+                
+                HStack{
+                    Text("Senha:")
+                        .font(Font.custom("Rubik", size: 16))
+                        .padding(.bottom, -1)
+                        .padding(.horizontal, 35)
+                        .padding(.top, 5)
+                    Spacer()
+                }
+                // Campo Senha
+                HStack {
+                    if mostrarSenha {
+                        TextField("******", text: $senha)
+                            .textInputAutocapitalization(.never)
+                    } else {
+                        SecureField("******", text: $senha)
+                    }
+                    
+                    Button(action: { mostrarSenha.toggle() }) {
+                        Image(mostrarSenha ? "olhoCinza" : "olhoFechadoCinza")
+                        
+                    }
                 }
                 .padding(10)
                 .background(Color(.lightGray).opacity(0.25))
@@ -209,40 +247,65 @@ struct CriarConta: View {
                 .padding(.horizontal, 35)
                 .frame(width: 400)
                 .font(Font.custom("Rubik", size: 17))
-            }
-            .buttonStyle(.plain)
-            .sheet(isPresented: $mostrarChavePix) {
-                VStack {
-                    Text("Selecionar Chave Pix")
-                        .font(Font.custom("Parkinsans", size: 22))
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("corPrincipal"))
-                        .padding(.top, 30)
-                    
-                    Picker("Chave Pix", selection: Binding(
-                        get: { chavePix ?? "Telefone" },
-                        set: { chavePix = $0 }
-                    )) {
-                        Text("Telefone").tag("Telefone")
-                        Text("Email").tag("Email")
-                        Text("CPF").tag("CPF")
-                    }
-                    .pickerStyle(.wheel)
-                    .tint(Color("corPrincipal"))
-                    
-                    Button("Confirmar") {
-                        if chavePix == nil { chavePix = "Telefone" }
-                        mostrarChavePix = false
-                    }
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 40)
-                    .padding(.vertical, 12)
-                    .background(Color("corPrincipal"))
-                    .cornerRadius(10)
-                    .padding(.bottom, 30)
+                .frame(maxWidth: .infinity)
+                
+                HStack{
+                    Text("Selecione a Chave Pix:")
+                        .font(Font.custom("Rubik", size: 16))
+                        .padding(.bottom, -1)
+                        .padding(.horizontal, 35)
+                        .padding(.top, 5)
+                    Spacer()
                 }
-                .presentationDetents([.fraction(0.4)])
-            }
+                
+                // Campo Chave Pix
+                Button(action: { mostrarChavePix = true }) {
+                    HStack {
+                        Text(chavePix == nil ? "Selecionar Chave Pix" : chavePix!)
+                            .foregroundColor(chavePix == nil ? Color(.systemGray2) : .black)
+                        Spacer()
+                    }
+                    .padding(10)
+                    .background(Color(.lightGray).opacity(0.25))
+                    .cornerRadius(10)
+                    .padding(.horizontal, 35)
+                    .frame(width: 400)
+                    .font(Font.custom("Rubik", size: 17))
+                }
+                .buttonStyle(.plain)
+                .sheet(isPresented: $mostrarChavePix) {
+                    VStack {
+                        Text("Selecionar Chave Pix")
+                            .font(Font.custom("Parkinsans", size: 22))
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("corPrincipal"))
+                            .padding(.top, 30)
+                        
+                        Picker("Chave Pix", selection: Binding(
+                            get: { chavePix ?? "Telefone" },
+                            set: { chavePix = $0 }
+                        )) {
+                            Text("Telefone").tag("Telefone")
+                            Text("Email").tag("Email")
+                            Text("CPF").tag("CPF")
+                        }
+                        .pickerStyle(.wheel)
+                        .tint(Color("corPrincipal"))
+                        
+                        Button("Confirmar") {
+                            if chavePix == nil { chavePix = "Telefone" }
+                            mostrarChavePix = false
+                        }
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 40)
+                        .padding(.vertical, 12)
+                        .background(Color("corPrincipal"))
+                        .cornerRadius(10)
+                        .padding(.bottom, 30)
+                    }
+                    .presentationDetents([.fraction(0.4)])
+                }
+            }.padding(.bottom, 10)
             
             // Botão Proximo
             Button(action: {
@@ -260,10 +323,14 @@ struct CriarConta: View {
             }
             .padding(.trailing, 35)
             .padding(.top, 10)
+            .padding(.bottom, 40)
             .frame(maxWidth: .infinity, alignment: .trailing)
             .navigationDestination(isPresented: $irPin){
-                DefinirPin()
+                //DefinirPin()
             }
+            
+            Spacer()
+            
             
         }
         .navigationBarTitleDisplayMode(.inline)

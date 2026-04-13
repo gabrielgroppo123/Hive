@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PixCC: View {
+    @Environment(\.dismiss) var dismiss
     @State var valor: String = ""
     @State var voltar: Bool = false
     @State var confirmar: Bool = false
@@ -17,49 +18,33 @@ struct PixCC: View {
         VStack{
             
             VStack{
-                Button(action:{
-                    voltar = true
-                }) {
-                    Image("seta")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 35)
-                }.navigationDestination(isPresented: $voltar){
-                    AreaBoleto()
-                }
-                .padding(.bottom, 50)
-                
                 HStack{
                     Text("Copia e Cola")
-                        .font(.system(size: 18))
+                        .font(.custom("Rubik", size: 18))
                     Spacer()
-                    //Text("Colar")
-                      //  .font(.system(size: 18))
-                        //.foregroundColor(.gray)
                 }.padding(.horizontal, 35)
                 
                 TextField("", text: $valor)
                     .padding(10)
                     .background(Color(.systemGray6))
                     .cornerRadius(10)
-                    //.padding(.horizontal, 30)
                     .frame(width: 320)
-                    .padding(.bottom, 350)
                 
-            }//.padding(.top, 20)
+            }.padding(.top, 100)
   
+            Spacer()
+            
             Button(action:{
                 confirmar = true
             }){
                 VStack(alignment: .leading){
                     Text("Confirmar")
                         .foregroundColor(.white)
-                        .fontWeight(.bold)
-                        .font(.system(size: 20))
-                        //.padding(.horizontal, 12)
+                        .fontWeight(.semibold)
+                        .font(.custom("Rubik", size: 20))
                         .padding(.vertical, 15)
-                        //.padding(.bottom, 17)
                         .frame(width: 320, height: 60)
-                        .background(Color(red: 0.97, green: 0.21, blue: 0.43))
+                        .background(Color("corPrincipal"))
                         .cornerRadius(12)
                 }.navigationDestination(isPresented: $confirmar){
                     Confirmar()
@@ -67,9 +52,19 @@ struct PixCC: View {
                 .padding(.bottom, 10)
             }
         }
-        .padding(.bottom, 50)
-        .ignoresSafeArea(.keyboard)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Color("corPrincipal"))
+                }
+            }
+        }
         .navigationBarBackButtonHidden(true)
+        Spacer()
+        .padding(.bottom, 50)
     }
     
 }

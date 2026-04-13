@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Confirmar: View {
+    @Environment(\.dismiss) var dismiss
     @State var continuar: Bool = false
     @State var voltar: Bool = false
     
@@ -15,76 +16,90 @@ struct Confirmar: View {
     var body: some View {
         
         VStack{
-            Button(action:{
-                voltar = true
-            }) {
-                Image("seta")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 35)
-            }.navigationDestination(isPresented: $voltar){
-                AreaBoleto()
-            }
-            .padding(.bottom, 40)
             
-            Image("iconhive")
-                .padding(.bottom, 10)
-            Text("Pagar R$ 100,00")
-                .font(.system(size: 22))
-                .fontWeight(.bold)
-                .padding(.bottom, 3)
-            HStack{
-                Text("Para")
-                    .foregroundColor(.gray)
-                Text("São José Restaurante")
-                    .padding(.leading, -2)
-                    .fontWeight(.bold)
-                    .foregroundColor(.gray)
-            }.padding(.bottom, 120)
+            
+            Spacer()
                 
-            HStack{
-                Text("Quem vai receber")
-                    .font(.system(size: 22))
-                    .padding(.bottom, 15)
-                    .padding(.leading, 35)
-                Spacer()
 
-            }
-            HStack{
-                Text("Nome")
-                    .font(.system(size: 18))
-                    .foregroundColor(.gray)
-                    
-                Spacer()
-                Text("São José Restaurante")
-                    .font(.system(size: 18))
-                    
-            }.padding(.horizontal, 35)
-                .padding(.bottom, 10)
-            HStack{
-                Text("CPF/CNPJ")
-                    .font(.system(size: 18))
-                    .foregroundColor(.gray)
-                
-                Spacer()
-                Text("000.000.000-00")
-                    .font(.system(size: 18))
-                    
-                
-            }.padding(.horizontal, 35)
-                .padding(.bottom, 10)
-            HStack{
-                Text("ID da transição")
-                    .font(.system(size: 18))
-                    .foregroundColor(.gray)
-                    
-                Spacer()
-                Text("348980294095")
-                    .font(.system(size: 18))
-                    
-                
-            }.padding(.bottom, 80)
-                .padding(.horizontal, 35)
             
+        
+            VStack{
+                Image("iconhive")
+                    .padding(.top, 20)
+                    .padding(.bottom, 10)
+                Text("Pagar R$ 100,00")
+                    .font(.custom("Rubik", size: 22))
+                    .fontWeight(.semibold)
+                    .padding(.bottom, 3)
+                HStack{
+                    Text("Para")
+                        .foregroundColor(.gray)
+                        .font(.custom("Rubik", size: 18))
+                    Text("São José Restaurante")
+                        .font(.custom("Rubik", size: 18))
+                        .padding(.leading, -2)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.gray)
+                }
+                
+            }
+            
+            
+            Spacer()
+            
+            
+            VStack{
+                HStack{
+                    Text("Quem vai receber")
+                        .font(.custom("Rubik", size: 20))
+                        .padding(.bottom, 15)
+                        .padding(.leading, 35)
+                    Spacer()
+                    
+                }
+                HStack{
+                    Text("Nome")
+                        .font(.custom("Rubik", size: 14))
+                        .foregroundColor(.gray)
+                    
+                    Spacer()
+                    Text("São José Restaurante")
+                        .font(.custom("Rubik", size: 14))
+                    
+                }.padding(.horizontal, 35)
+                    .padding(.bottom, 10)
+                HStack{
+                    Text("CPF/CNPJ")
+                        .font(.custom("Rubik", size: 14))
+                        .foregroundColor(.gray)
+                    
+                    Spacer()
+                    Text("000.000.000-00")
+                        .font(.custom("Rubik", size: 14))
+                    
+                    
+                }.padding(.horizontal, 35)
+                    .padding(.bottom, 10)
+                HStack{
+                    Text("ID da transição")
+                        .font(.custom("Rubik", size: 14))
+                        .foregroundColor(.gray)
+                    
+                    Spacer()
+                    Text("348980294095")
+                        .font(.custom("Rubik", size: 14))
+                    
+                    
+                }
+             
+                    .padding(.horizontal, 35)
+                    .padding(.bottom, 50)
+            }
+            
+            
+            Spacer()
+            
+                
             Button(action:{
                 continuar = true
             }){
@@ -92,18 +107,31 @@ struct Confirmar: View {
                     Text("Continuar")
                         .foregroundColor(.white)
                         
-                        .font(.system(size: 20))
+                        .font(.custom("Rubik", size: 18))
                         .frame(width: 320, height: 50)
-                        .fontWeight(.bold)
-                    //.frame(width: 105, height: 49, alignment: .center)
-                        .background(Color(red: 0.97, green: 0.21, blue: 0.43))
+                        .fontWeight(.semibold)
+                   
+                        .background(Color("corPrincipal"))
                         .cornerRadius(12)
                 }.navigationDestination(isPresented:$continuar){
-                    //DigitarPin
+                    DigitePin()
                 }
-                .padding(.bottom, 10)
+                .padding(.bottom, 20)
+            }
+            Spacer()
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar) // força ícones claros
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Color("corPrincipal"))
+                }
             }
         }
+        .navigationBarBackButtonHidden(true)
+        Spacer()
         
     }
 }

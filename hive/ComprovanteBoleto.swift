@@ -1,4 +1,4 @@
-//
+
 //  ComprovanteBoleto.swift
 //  hivepart
 //
@@ -8,39 +8,171 @@
 import SwiftUI
 
 struct ComprovanteBoleto: View {
+    @Environment(\.dismiss) var dismiss
+    @State var compartilhar = false
+    @State var fechar = false
     var body: some View {
         
         VStack{
-            Image("confirma")
-                .padding(.bottom, 10)
-            Text ("Pago R$100,00")
-                .font(.system(size: 22))
-                .fontWeight(.bold)
-                .padding(.bottom, 1)
-            Text ("Para X")
-                .font(.system(size: 18))
-                .fontWeight(.regular)
-                .foregroundStyle(Color .gray)
-                .padding(.bottom, 100)
             
-            HStack{
-                Text ("Sobre")
-                    .font(.system(size:22))
-                    .padding(.bottom, 15)
-                    .padding(.leading, 35)
-                Spacer()
-                
+            Spacer()
+            
+            VStack{
+                Image("confirma")
+                    .padding(.bottom, 10)
+                    .padding(.top, 50)
+                Text ("Pago R$100,00")
+                    .font(.custom("Rubik", size: 22))
+                    .fontWeight(.semibold)
+                    .padding(.bottom, 1)
+                HStack{
+                    Text ("Para")
+                        .font(.custom("Rubik", size: 18))
+                        .fontWeight(.regular)
+                        .foregroundStyle(Color .gray)
+                        
+                    Text ("São José Restaurante")
+                        .font(.custom("Rubik", size: 18))
+                        .fontWeight(.semibold)
+                        .foregroundStyle(Color .gray)
+                        .padding(.leading, -2)
+                }
             }
+            Spacer()
             
-            HStack{
-                Text("Data da Transação")
-                    .font(.system(size:16))
-                Spacer()
-                Text("Sexta-Feira, 27/04/26")
-                    .font(Font.system(size:16))
-                
+            VStack{
+                HStack{
+                    Text ("Sobre")
+                        .font(.custom("Rubik", size:20))
+                        .padding(.bottom, 15)
+                        .padding(.leading, 35)
+                    Spacer()
                     
                 }
+                
+                HStack{
+                    Text("Data da Transação")
+                        .font(.custom("Rubik", size:14))
+                        .foregroundStyle(.gray)
+                    Spacer()
+                    Text("Sexta-Feira, 27/04/26")
+                        .font(.custom("Rubik", size:14))
+                }
+                .padding(.horizontal, 35)
+                .padding(.bottom, 10)
+                
+                HStack{
+                    Text("Horário")
+                        .font(.custom("Rubik", size:14))
+                        .foregroundStyle(.gray)
+                    Spacer()
+                    Text("10h")
+                        .font(.custom("Rubik", size:14))
+                }
+                .padding(.horizontal, 35)
+                .padding(.bottom, 10)
+                
+                HStack{
+                    Text("ID da Transação")
+                        .font(.custom("Rubik", size:14))
+                        .foregroundStyle(.gray)
+                    Spacer()
+                    Text("993839202018274")
+                        .font(.custom("Rubik", size:14))
+                }
+                .padding(.horizontal, 35)
+                .padding(.bottom, 30)
+                
+                HStack{
+                    Text ("Quem recebeu")
+                        .font(.custom("Rubik", size:20))
+                        .padding(.bottom, 15)
+                        .padding(.leading, 35)
+                    Spacer()
+                    
+                }
+                
+                HStack{
+                    Text("Nome")
+                        .font(.custom("Rubik", size:14))
+                        .foregroundStyle(.gray)
+                    Spacer()
+                    Text("São José Restaurante")
+                        .font(.custom("Rubik", size:14))
+                }
+                .padding(.horizontal, 35)
+                .padding(.bottom, 10)
+                
+                HStack{
+                    Text("CPF/CNPJ")
+                        .font(.custom("Rubik", size:14))
+                        .foregroundStyle(.gray)
+                    Spacer()
+                    Text("957.263.738-89")
+                        .font(.custom("Rubik", size:14))
+                }
+                .padding(.horizontal, 35)
+                .padding(.bottom, 10)
+                
+                HStack{
+                    Text("Chave Pix")
+                        .font(.custom("Rubik", size:14))
+                        .foregroundStyle(.gray)
+                    Spacer()
+                    Text("839839403948502")
+                        .font(.custom("Rubik", size:14))
+                }
+                .padding(.horizontal, 35)
+              //  .padding(.bottom, 30)
+            }
+            Spacer()
+            
+            VStack{
+                Button(action:{
+                    compartilhar = true
+                }){
+                    VStack(alignment: .leading){
+                        Text("Compartilhar")
+                            .foregroundColor(.white)
+                            .frame(width: 320, height: 40)
+                            .font(.custom("Rubik", size:16))
+                            .background(Color("corPrincipal"))
+                            .cornerRadius(12)
+                    }.navigationDestination(isPresented:$compartilhar){
+                        //Compartilhar()
+                    }
+                    .padding(.bottom, -3)
+                }
+                
+                Button(action:{
+                    fechar = true
+                }){
+                    VStack(alignment: .leading){
+                        Text("Fechar")
+                            .foregroundColor(.primary)
+                            .font(.custom("Rubik", size: 16))
+                            .frame(width: 320, height: 40)
+                            .background(Color(.systemGray5))
+                            .cornerRadius(12)
+                    }.navigationDestination(isPresented:$fechar){
+                        TelaPrincipal()
+                    }
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarColorScheme(.dark, for: .navigationBar) // força ícones claros
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: { dismiss() }) {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(Color("corPrincipal"))
+                    }
+                }
+            }
+            .navigationBarBackButtonHidden(true)
+            Spacer()
+            .padding(.bottom, 20)
+
         }
     }
 }

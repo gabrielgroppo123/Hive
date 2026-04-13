@@ -8,9 +8,6 @@ struct DigitePin: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-
-            
-
             Text("Digite seu PIN")
                 .font(Font.custom("Parkinsans", size: 35))
                 .fontWeight(.bold)

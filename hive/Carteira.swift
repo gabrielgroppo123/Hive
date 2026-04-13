@@ -48,12 +48,12 @@ struct Carteira: View {
                         Image(mostrarSaldo ? "olhoAberto" : "olhoFechado")
                     }
                 }
-                .padding(.horizontal, 30)
+                .padding(.horizontal, 35)
 
                 Text(mostrarSaldo ? "R$ 1.000,00" : "R$ ••••••")
                     .foregroundColor(.white)
                     .font(Font.custom("Parkinsans", size: 40))
-                    .padding(.horizontal, 30)
+                    .padding(.horizontal, 35)
                     .padding(.top, 8)
                     .fontWeight(.semibold)
 
@@ -61,7 +61,7 @@ struct Carteira: View {
                 Rectangle()
                     .foregroundColor(Color(red: 0.97, green: 0.42, blue: 0.54).opacity(0.6))
                     .frame(height: 2)
-                    .padding(.horizontal, 30)
+                    .padding(.horizontal, 35)
                     .padding(.top, 35)
                     .padding(.bottom, 24)
 
@@ -70,7 +70,7 @@ struct Carteira: View {
                     .foregroundColor(.white)
                     .font(Font.custom("Parkinsans", size: 32))
                     .fontWeight(.bold)
-                    .padding(.horizontal, 30)
+                    .padding(.horizontal, 35)
                     .padding(.bottom, 30)
 
                 // Transações
@@ -96,7 +96,7 @@ struct Carteira: View {
                                 .font(Font.custom("Parkinsans", size: 18))
                         }
                     }
-                    .padding(.horizontal, 30)
+                    .padding(.horizontal, 35)
                     
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
@@ -119,7 +119,7 @@ struct Carteira: View {
                                 .font(Font.custom("Parkinsans", size: 18))
                         }
                     }
-                    .padding(.horizontal, 30)
+                    .padding(.horizontal, 35)
                     
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
@@ -142,11 +142,14 @@ struct Carteira: View {
                                 .font(Font.custom("Parkinsans", size: 18))
                         }
                     }
-                    .padding(.horizontal, 30)
+                    .padding(.horizontal, 35)
                 }
 
                 Spacer()
-            }  // ← VStack fecha aqui
+            }.padding(.horizontal, 10
+            )
+            
+            // ← VStack fecha aqui
             .frame(width: 393, height: 897)
         }  // ← ZStack fecha aqui
         .frame(width: 393, height: 897)

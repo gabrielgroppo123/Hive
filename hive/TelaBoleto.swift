@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AreaBoleto: View {
+    @Environment(\.dismiss) var dismiss
     @State var voltar: Bool = false
     @State var escanear: Bool = false
     @State var codigo: Bool = false
@@ -104,6 +105,18 @@ struct AreaBoleto: View {
                         .foregroundColor(Color(.darkGray))
                 }}
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar) // força ícones claros
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Color("corPrincipal"))
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        Spacer()
         .padding()
         .padding(.bottom, 150)
     }

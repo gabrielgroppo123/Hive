@@ -52,9 +52,9 @@ struct DadosPessoais: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     .padding(.bottom, )
-            //}
             
-            //VStack {
+            
+            
                 Text("E-mail:")
                     .font(Font.custom("Rubik", size: 22))
                     .fontWeight(.bold)
@@ -69,9 +69,9 @@ struct DadosPessoais: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     .padding(.bottom)
-            //}
             
-            //VStack {
+            
+     
                 Text("Telefone:")
                     .font(Font.custom("Rubik", size: 22))
                     .fontWeight(.bold)
@@ -86,9 +86,9 @@ struct DadosPessoais: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     .padding(.bottom, )
-            //}
+         
             
-            //VStack {
+            
                 Text("Endereço:")
                     .font(Font.custom("Rubik", size: 22))
                     .fontWeight(.bold)
@@ -103,9 +103,9 @@ struct DadosPessoais: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
                     .padding(.bottom, )
-            //}
             
-            //VStack {
+            
+            
                 Text("CPF/CNPJ:")
                     .font(Font.custom("Rubik", size: 22))
                     .fontWeight(.bold)
