@@ -61,18 +61,7 @@ struct CriarConta: View {
     var body: some View {
         
         VStack {
-            //            //SetaVoltar
-            //            Button(action: { irLogin = true }) {
-            //                Image("seta voltar")
-            //            }
-            //            .buttonStyle(.plain)
-            //            .navigationDestination(isPresented: $irLogin) {
-            //                TelaLogin()
-            //            }
-            //            .frame(maxWidth: .infinity, alignment: .leading)
-            //            .padding(.leading, 35)
-            //            .padding(.bottom, 25)
-            //            .padding(.top, 50)
+
             
             //Criar Conta
             Spacer()
@@ -84,6 +73,7 @@ struct CriarConta: View {
                     Color("corPrincipal"))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 35)
+                .padding(.top, 60)
                 //.padding(.bottom, 25)
             
             // Campo nome
@@ -144,12 +134,13 @@ struct CriarConta: View {
                     Spacer()
                 }
                 // Campo email
-                TextField("pedrohteruel@senacsp.br", text: $email)
+                TextField("pedrohteruel@gmail﹒com", text: $email)
                     .padding(10)
                     .background(Color(.lightGray).opacity(0.25))
                     .cornerRadius(10)
                     .padding(.horizontal, 35)
                     .frame(width: 400)
+                    .autocorrectionDisabled(true)
                     .textInputAutocapitalization(.never)
                     .font(Font.custom("Rubik", size: 17))
                 // Campo Telefone
@@ -321,7 +312,7 @@ struct CriarConta: View {
                     }
                     .presentationDetents([.fraction(0.4)])
                 }
-            }.padding(.bottom, 40)
+            }.padding(.bottom, 10)
             
             // Botão Proximo
             Button(action: {
@@ -339,6 +330,7 @@ struct CriarConta: View {
             }
             .padding(.trailing, 35)
             .padding(.top, 10)
+            .padding(.bottom, 40)
             .frame(maxWidth: .infinity, alignment: .trailing)
             .navigationDestination(isPresented: $irPin){
                 //DefinirPin()
