@@ -37,7 +37,7 @@ struct Confirmar: View {
                     Text("São José Restaurante")
                         .font(.custom("Rubik", size: 18))
                         .padding(.leading, -2)
-                        .fontWeight(.semibold)
+                        .fontWeight(.medium)
                         .foregroundColor(.gray)
                 }
                 //.padding(.bottom, 120)
@@ -73,7 +73,7 @@ struct Confirmar: View {
                         .foregroundColor(.gray)
                     
                     Spacer()
-                    Text("000.000.000-00")
+                    Text("⦁⦁⦁.⦁⦁⦁.159-01")
                         .font(.custom("Rubik", size: 14))
                     
                     
