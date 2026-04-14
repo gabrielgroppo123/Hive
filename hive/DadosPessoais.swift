@@ -16,6 +16,7 @@ struct Info {
 }
 
 struct DadosPessoais: View {
+    @Environment(\.dismiss) var dismiss
     @State var voltar: Bool = false
     let usuario = Info(
         nome:"Ana Clara Fornazier Rocha",
@@ -149,6 +150,18 @@ struct DadosPessoais: View {
             Spacer()
             Spacer()
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar) // força ícones claros
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Color("corPrincipal"))
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .ignoresSafeArea(.keyboard)
     }
 }
 

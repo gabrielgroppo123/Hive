@@ -14,12 +14,12 @@ struct ComprovanteBoleto: View {
         
         VStack{
             
-            Spacer()
+            //Spacer()
             
             VStack{
                 Image("confirma")
                     .padding(.bottom, 10)
-                    .padding(.top, 50)
+                    .padding(.top, 70)
                 Text ("Pago R$100,00")
                     .font(.custom("Rubik", size: 22))
                     .fontWeight(.semibold)
@@ -113,8 +113,6 @@ struct ComprovanteBoleto: View {
                 .padding(.horizontal, 35)
                 .padding(.bottom, 10)
                 
-                //.padding(.horizontal, 35)
-              //  .padding(.bottom, 30)
             }
             Spacer()
             
@@ -149,7 +147,7 @@ struct ComprovanteBoleto: View {
                         TelaPrincipal()
                     }
                 }
-            }.padding(.bottom, 20)
+            }.padding(.bottom, 50)
 
         }
     }

@@ -25,7 +25,7 @@ struct AreadePagamento: View {
                         .foregroundColor(Color(.darkGray))
                     Image("olho")
                 }.padding(.horizontal, 35)
-                    .padding(.top, 100)
+                    .padding(.top, 80)
                 
                 Rectangle()
                   .foregroundColor(.clear)

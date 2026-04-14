@@ -41,7 +41,7 @@ struct LerCodigoBarra: View {
                 Text("Escanear código de barras")
                     .frame(width: 250, height: 290)
                     .font(Font.custom("Rubik", size: 20))
-                    .foregroundColor(Color(.gray))
+                    .foregroundStyle(Color(.gray))
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 250)
                     .rotationEffect(Angle(degrees: 90))
@@ -54,7 +54,7 @@ struct LerCodigoBarra: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: { dismiss() }) {
                     Image(systemName: "chevron.up")
-                        .foregroundColor(Color("corPrincipal"))
+                        .foregroundStyle(Color("corPrincipal"))
                 }
             }
         }

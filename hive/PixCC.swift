@@ -63,7 +63,7 @@ struct PixCC: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        Spacer()
+        //Spacer()
         .padding(.bottom, 50)
     }
     

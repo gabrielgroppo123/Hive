@@ -16,14 +16,8 @@ struct TelaPrincipal: View {
     var body: some View {
         
         ZStack(alignment: .bottom) {
-            
             // Todo o conteúdo da home
             VStack {
-                
-                
-                
-                
-                
                 VStack{
                     HStack {
                         VStack(alignment: .leading) {
@@ -44,8 +38,9 @@ struct TelaPrincipal: View {
                             Perfil()
                         }
                         
-                    }.padding(.horizontal, 35)
-                    .padding(.top, 20)
+                    }
+                    .padding(.horizontal, 35)
+                    .padding(.top, 30)
                     
 
                 }.padding(.horizontal, 35)
@@ -54,9 +49,6 @@ struct TelaPrincipal: View {
                 
                 // Cartões com scroll lateral
                 TabView {
-                    
-                    
-                    
                     // Cartão 1
                     ZStack(alignment: .bottomLeading) {
                         Rectangle()
@@ -145,7 +137,7 @@ struct TelaPrincipal: View {
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 .frame(width: 380, height: 170)
                 .padding(.horizontal, 35)
-                .padding(.top, 10)
+                .padding(.top, 1)
                 .padding(.bottom,20)
 
                 
@@ -195,7 +187,7 @@ struct TelaPrincipal: View {
                             }
                             .buttonStyle(.plain)
                             .navigationDestination(isPresented: $irParaBoleto) {
-                                //TelaBoleto()
+                                AreaBoleto()
                             }
 
                             //Investir

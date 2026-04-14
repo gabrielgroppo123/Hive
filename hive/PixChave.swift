@@ -66,7 +66,7 @@ struct PixChave: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        Spacer()
+        //Spacer()
         .padding(.bottom, 50)
     }
     

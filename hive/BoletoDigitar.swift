@@ -25,7 +25,7 @@ struct BoletoDigitar: View {
                     Spacer()
 
                 }.padding(.horizontal, 35)
-                .padding(.top, 100)
+                .padding(.top, 80)
                 
             TextField("", text: $valor)
                 .padding(10)
@@ -71,7 +71,7 @@ struct BoletoDigitar: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        Spacer()
+        //Spacer()
         .padding(.bottom, 50)
     }
     

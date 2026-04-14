@@ -14,12 +14,12 @@ struct ComprovantePix: View {
         
         VStack{
             
-            Spacer()
+            //Spacer()
             
             VStack{
                 Image("confirma")
                     .padding(.bottom, 10)
-                    .padding(.top, 50)
+                    .padding(.top, 70)
                 Text ("Pago R$50,00")
                     .font(.custom("Rubik", size: 22))
                     .fontWeight(.semibold)

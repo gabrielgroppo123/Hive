@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DigitePin: View {
+struct DigitePinBoleto: View {
     @Environment(\.dismiss) var dismiss
 
     @State private var pin: String = ""
@@ -60,7 +60,7 @@ struct DigitePin: View {
                     .font(Font.custom("Rubik", size: 18))
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 18)
-                    .background(Color("corPrincipal"))
+                    .background(Color(red: 247/255, green: 54/255, blue: 109/255))
                     .cornerRadius(14)
             }
             .padding(.horizontal, 35)
@@ -83,10 +83,6 @@ struct DigitePin: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .contentShape(Rectangle())
-        .onTapGesture {
-            isFocused = false
-        }
     }
 
    
@@ -98,6 +94,6 @@ struct DigitePin: View {
 }
 
 #Preview {
-    DigitePin()
+    DigitePinBoleto()
 }
 

@@ -16,7 +16,7 @@ struct DefinirPin: View {
                 .foregroundColor(Color("corPrincipal"))
                 .padding(.leading, 35)
                 .padding(.bottom, 40)
-                .padding(.top, 100)
+                .padding(.top, 60)
 
             //Spacer()
             // PIN VISUAL (4 quadrados)
@@ -75,16 +75,18 @@ struct DefinirPin: View {
             
             .padding(.horizontal, 35)
             .padding(.top, 100)
+            .padding(.bottom, 50)
             .navigationDestination(isPresented: $irHome){
                 TelaPrincipal()
             }
             
-            Spacer()
+            
+            //Spacer()
         }
         .onAppear {
             isFocused = true
         }
-        //.ignoresSafeArea(.keyboard)
+        .ignoresSafeArea(.keyboard)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -95,6 +97,10 @@ struct DefinirPin: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            isFocused = false
+        }
     }
 
    

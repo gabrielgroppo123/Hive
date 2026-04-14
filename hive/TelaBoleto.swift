@@ -38,7 +38,7 @@ struct AreaBoleto: View {
                     .background(Color("corPrincipal"))
                     .cornerRadius(12)
                     .navigationDestination(isPresented: $escanear){
-                        //BoletoDigitar()
+                        LerCodigoBarra()
                     }
                 }.padding(.bottom, 5)
                 
@@ -57,7 +57,7 @@ struct AreaBoleto: View {
                     .background(Color("corPrincipal"))
                     .cornerRadius(12)
                     .navigationDestination(isPresented: $codigo){
-                        //BoletoDigitar()
+                        BoletoDigitar()
                     }
                     .padding(.bottom, 80)
                 }
@@ -116,7 +116,7 @@ struct AreaBoleto: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        Spacer()
+    
         .padding()
         .padding(.bottom, 150)
     }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Confirmar: View {
+struct ConfirmarBoleto: View {
     @State var continuar: Bool = false
     @State var voltar: Bool = false
     
@@ -20,7 +20,7 @@ struct Confirmar: View {
                 Image("iconhive")
                     .padding(.top, 70)
                     .padding(.bottom, 10)
-                Text("Pagar R$ 100,00")
+                Text("Pagar R$ 50,00")
                     .font(.custom("Rubik", size: 22))
                     .fontWeight(.semibold)
                     .padding(.bottom, 3)
@@ -28,7 +28,7 @@ struct Confirmar: View {
                     Text("Para")
                         .foregroundColor(.gray)
                         .font(.custom("Rubik", size: 18))
-                    Text("São José Restaurante")
+                    Text("iPlace Jurubatuba")
                         .font(.custom("Rubik", size: 18))
                         .padding(.leading, -2)
                         .fontWeight(.medium)
@@ -56,7 +56,7 @@ struct Confirmar: View {
                         .foregroundColor(.gray)
                     
                     Spacer()
-                    Text("São José Restaurante")
+                    Text("iPlace Jurubatuba")
                         .font(.custom("Rubik", size: 14))
                     
                 }.padding(.horizontal, 35)
@@ -67,7 +67,7 @@ struct Confirmar: View {
                         .foregroundColor(.gray)
                     
                     Spacer()
-                    Text("⦁⦁⦁.⦁⦁⦁.159-01")
+                    Text("⦁⦁.⦁⦁⦁.159/⦁⦁⦁⦁-02")
                         .font(.custom("Rubik", size: 14))
                     
                     
@@ -116,5 +116,5 @@ struct Confirmar: View {
 }
 
 #Preview {
-    Confirmar()
+    ConfirmarBoleto()
 }
