@@ -97,10 +97,7 @@ struct DefinirPin: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .contentShape(Rectangle())
-        .onTapGesture {
-            isFocused = false
-        }
+        
     }
 
    

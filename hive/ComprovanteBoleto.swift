@@ -13,8 +13,7 @@ struct ComprovanteBoleto: View {
     var body: some View {
         
         VStack{
-            
-            //Spacer()
+           
             
             VStack{
                 Image("confirma")

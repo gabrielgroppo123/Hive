@@ -13,9 +13,7 @@ struct ComprovantePix: View {
     var body: some View {
         
         VStack{
-            
-            //Spacer()
-            
+    
             VStack{
                 Image("confirma")
                     .padding(.bottom, 10)

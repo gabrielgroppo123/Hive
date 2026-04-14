@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LerCodigoBarra: View {
     @Environment(\.dismiss) var dismiss
-    @State private var irParaPix: Bool = false
+    @State private var irConfirmaBoleto: Bool = false
     
     var body: some View {
        
@@ -18,7 +18,7 @@ struct LerCodigoBarra: View {
             ZStack{
             VStack {
                 Spacer()
-                Button(action: { irParaPix = true }) {
+                Button(action: { irConfirmaBoleto = true }) {
                     ZStack {
                         Image("ellipse")
                         Image("Camera")
@@ -26,8 +26,8 @@ struct LerCodigoBarra: View {
                     }
                 }
                 .buttonStyle(.plain)
-                .navigationDestination(isPresented: $irParaPix) {
-                    TelaPix()
+                .navigationDestination(isPresented: $irConfirmaBoleto) {
+                    ConfirmarBoleto()
                 }
                 Spacer()
             }

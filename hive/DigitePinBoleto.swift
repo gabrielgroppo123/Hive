@@ -5,6 +5,7 @@ struct DigitePinBoleto: View {
 
     @State private var pin: String = ""
     @FocusState private var isFocused: Bool
+    @State var irComprovanteBoleto: Bool = false
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -52,20 +53,28 @@ struct DigitePinBoleto: View {
                     pin = String(filtered.prefix(4))
                 }
             Spacer()
-            // BOTÃO
-            Button(action: {}) {
-                Text("Continuar")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .font(Font.custom("Rubik", size: 18))
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 18)
-                    .background(Color(red: 247/255, green: 54/255, blue: 109/255))
-                    .cornerRadius(14)
+            /// BOTÃO
+            Button(action: {
+                irComprovanteBoleto = true
+            }) {
+                VStack{
+                    Text("Continuar")
+                        .frame(width: 320, height: 50)
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .font(Font.custom("Rubik", size: 18))
+                   
+                        .background(Color("corPrincipal"))
+                        .cornerRadius(14)
+                }
             }
+            
             .padding(.horizontal, 35)
-            .padding(.top, 60)
+            .padding(.top, 100)
             .padding(.bottom, 50)
+            .navigationDestination(isPresented: $irComprovanteBoleto){
+                ComprovanteBoleto()
+            }
 
             //Spacer()
         }

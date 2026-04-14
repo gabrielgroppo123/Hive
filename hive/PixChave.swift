@@ -12,7 +12,7 @@ struct PixChave: View {
     @State var valor: String = ""
     @State var voltar: Bool = false
     @State var confirmar: Bool = false
-    
+    @FocusState private var campoAtivo: Bool
     
     var body: some View {
         VStack{
@@ -31,7 +31,7 @@ struct PixChave: View {
                     .background(Color(.systemGray6))
                     .cornerRadius(10)
                     .frame(width: 320)
-                
+                    .focused($campoAtivo)
             }.padding(.top, 100)
             
             
@@ -68,6 +68,10 @@ struct PixChave: View {
         .navigationBarBackButtonHidden(true)
         //Spacer()
         .padding(.bottom, 50)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            campoAtivo = false
+        }
     }
     
 }

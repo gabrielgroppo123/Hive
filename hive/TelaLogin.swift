@@ -11,7 +11,7 @@ struct TelaLogin: View {
     @State var senha: String = ""
     @State var irHome: Bool = false
     @State var irCriarConta: Bool = false
-    
+    @FocusState private var campoAtivo: Bool
     var body: some View {
         VStack(spacing: 16) {
             
@@ -37,6 +37,7 @@ struct TelaLogin: View {
                 .padding(.horizontal, 35)
                 .frame(width: 350)
                 .font(Font.custom("Rubik",size: 18))
+                .focused($campoAtivo)
             
             // Campo senha
             SecureField("Digite sua senha", text: $senha)
@@ -46,6 +47,7 @@ struct TelaLogin: View {
                 .padding(.horizontal, 35)
                 .frame(width: 350)
                 .font(Font.custom("Rubik",size: 18))
+                .focused($campoAtivo)
             
             // Esqueci minha senha
             HStack {
@@ -106,6 +108,10 @@ struct TelaLogin: View {
         }
         .ignoresSafeArea(.keyboard)
         .navigationBarBackButtonHidden(true)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            campoAtivo = false
+        }
     }
     
 }

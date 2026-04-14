@@ -23,6 +23,7 @@ struct CriarConta: View {
     @State var telefone: String = ""
     @State var mostrarSenha: Bool = false
     @State var irPin: Bool = false
+    @FocusState private var campoAtivo: Bool
     
     func formatarTelefone(_ value: String) -> String {
         
@@ -96,6 +97,7 @@ struct CriarConta: View {
                         .padding(.horizontal, 35)
                         .frame(width: 400)
                         .font(Font.custom("Rubik", size: 17))
+                        .focused($campoAtivo)
                     
                     // Campo CPF
                     HStack{
@@ -119,6 +121,7 @@ struct CriarConta: View {
                         .onChange(of: cpf) { oldValue, newValue in
                             cpf = formatarCPF(newValue)
                         }
+                        .focused($campoAtivo)
                     
                     
                     HStack{
@@ -139,6 +142,7 @@ struct CriarConta: View {
                         .autocorrectionDisabled(true)
                         .textInputAutocapitalization(.never)
                         .font(Font.custom("Rubik", size: 17))
+                        .focused($campoAtivo)
                     
                     
                     // Campo Telefone
@@ -162,6 +166,7 @@ struct CriarConta: View {
                         .onChange(of: telefone) { oldValue, newValue in
                             telefone = formatarTelefone(newValue)
                         }
+                        .focused($campoAtivo)
                     
                     
                     HStack{
@@ -233,8 +238,10 @@ struct CriarConta: View {
                         if mostrarSenha {
                             TextField("******", text: $senha)
                                 .textInputAutocapitalization(.never)
+                                .focused($campoAtivo)
                         } else {
                             SecureField("******", text: $senha)
+                            .focused($campoAtivo)
                         }
                         
                         Button(action: { mostrarSenha.toggle() }) {
