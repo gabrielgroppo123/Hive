@@ -14,7 +14,7 @@ struct TelaPix: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 35)
                 .padding(.bottom, 25)
-                .padding(.top, 40)
+                .padding(.top, 20)
             
             // Botões
             VStack(spacing: 8) {
@@ -72,72 +72,125 @@ struct TelaPix: View {
                     PixChave()
                 }
             }
-            
+            Spacer()
             // Favoritos
+            
             Text("Favoritos")
                 .font(Font.custom("Rubik", size: 18))
                 .foregroundColor(Color("corPrincipal"))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 35)
                 .padding(.top, 30)
+                .padding(.bottom, -30)
                 .fontWeight(.semibold)
-            
-            HStack {
-                ZStack(alignment: .topLeading) {
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(width: 150, height: 158)
-                        .background(Color(.lightGray).opacity(0.4))
-                        .cornerRadius(10)
-                    VStack(alignment: .leading) {
-                        Text("João")
-                            .font(Font.custom("Rubik", size: 25))
-                            .fontWeight(.semibold)
-                        Text("Pedro")
-                            .font(Font.custom("Rubik", size: 25))
-                            .fontWeight(.semibold)
-                            .padding(.bottom, 5)
-                        Text("Nubank")
-                            .font(Font.custom("Rubik", size: 12))
-                        Text("123.123.123-12")
-                            .font(Font.custom("Rubik", size: 12))
+            ZStack{
+                Rectangle()
+                    .frame(width: 50, height: 30)
+                    .foregroundColor(.gray.opacity(0.4))
+                    .cornerRadius(20)
+                    .padding(.top, 230)
+                TabView{
+                    HStack{
+                        ZStack(alignment: .topLeading) {
+                            Rectangle()
+                                .foregroundColor(.clear)
+                                .frame(width: 155, height: 158)
+                                .background(Color(.lightGray).opacity(0.4))
+                                .cornerRadius(10)
+                            VStack(alignment: .leading) {
+                                Text("Gabriel")
+                                    .font(Font.custom("Rubik", size: 25))
+                                    .fontWeight(.semibold)
+                                Text("Groppo")
+                                    .font(Font.custom("Rubik", size: 25))
+                                    .fontWeight(.semibold)
+                                    .padding(.bottom, 30)
+                                Text("Nubank")
+                                    .font(Font.custom("Rubik", size: 12))
+                                Text("123.123.123-12")
+                                    .font(Font.custom("Rubik", size: 12))
+                            }
+                            .padding(.horizontal, 10)
+                            .padding(.top, 15)
+                        }
+                        
+                        ZStack(alignment: .topLeading) {
+                            Rectangle()
+                                .foregroundColor(.clear)
+                                .frame(width: 155, height: 158)
+                                .background(Color(.lightGray).opacity(0.4))
+                                .cornerRadius(10)
+                            VStack(alignment: .leading) {
+                                Text("Sabrina")
+                                    .font(Font.custom("Rubik", size: 25))
+                                    .fontWeight(.semibold)
+                                Text("Carpenter")
+                                    .font(Font.custom("Rubik", size: 25))
+                                    .fontWeight(.semibold)
+                                    .padding(.bottom, 30)
+                                
+                                Text("Nubank")
+                                    .font(Font.custom("Rubik", size: 12))
+                                Text("231.231.231-21")
+                                    .font(Font.custom("Rubik", size: 12))
+                            }
+                            .padding(.horizontal, 10)
+                            .padding(.top, 15)
+                        }
+                        
                     }
-                    .padding(.leading, 15)
-                    .padding(.top, 15)
-                }
-                .padding(.trailing, 10)
-                
-                ZStack(alignment: .topLeading) {
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(width: 150, height: 158)
-                        .background(Color(.lightGray).opacity(0.4))
-                        .cornerRadius(10)
-                    VStack(alignment: .leading) {
-                        Text("Ana")
-                            .font(Font.custom("Rubik", size: 25))
-                            .fontWeight(.bold)
-                        Text("Laura")
-                            .font(Font.custom("Rubik", size: 25))
-                            .fontWeight(.bold)
-                            .padding(.bottom, 5)
-                        Text("Inter")
-                            .font(Font.custom("Rubik", size: 12))
-                        Text("321.321.321-32")
-                            .font(Font.custom("Rubik", size: 12))
+                    HStack {
+                        ZStack(alignment: .topLeading) {
+                            Rectangle()
+                                .foregroundColor(.clear)
+                                .frame(width: 150, height: 158)
+                                .background(Color(.lightGray).opacity(0.4))
+                                .cornerRadius(10)
+                            VStack(alignment: .leading) {
+                                Text("Ana")
+                                    .font(Font.custom("Rubik", size: 25))
+                                    .fontWeight(.bold)
+                                Text("Clara")
+                                    .font(Font.custom("Rubik", size: 25))
+                                    .fontWeight(.bold)
+                                    .padding(.bottom, 30)
+                                Text("Inter")
+                                    .font(Font.custom("Rubik", size: 12))
+                                Text("321.321.321-32")
+                                    .font(Font.custom("Rubik", size: 12))
+                            }
+                            .padding(.leading, 10)
+                            .padding(.top, 15)
+                        }
+                        
+                        ZStack(alignment: .topLeading) {
+                            Rectangle()
+                                .foregroundColor(.clear)
+                                .frame(width: 150, height: 158)
+                                .background(Color(.lightGray).opacity(0.4))
+                                .cornerRadius(10)
+                            VStack(alignment: .leading) {
+                                Text("Julio")
+                                    .font(Font.custom("Rubik", size: 25))
+                                    .fontWeight(.bold)
+                                Text("Sampaio")
+                                    .font(Font.custom("Rubik", size: 25))
+                                    .fontWeight(.bold)
+                                    .padding(.bottom, 30)
+                                Text("Inter")
+                                    .font(Font.custom("Rubik", size: 12))
+                                Text("341.324.321-42")
+                                    .font(Font.custom("Rubik", size: 12))
+                            }
+                            .padding(.leading, 10)
+                            .padding(.top, 15)
+                        }
+                        
                     }
-                    .padding(.leading, 15)
-                    .padding(.top, 15)
                 }
+                .frame(width: 340, height: 280)
+                .tabViewStyle(.page(indexDisplayMode: .always))
             }
-            
-            HStack {
-                Image("bolinha").frame(width: 7.5, height: 7.5)
-                Image("bolinha clara").frame(width: 7.5, height: 7.5)
-                Image("bolinha clara").frame(width: 7.5, height: 7.5)
-            }
-            .padding(.top, 15)
-            
             Spacer()
         }
         .navigationBarBackButtonHidden(true)

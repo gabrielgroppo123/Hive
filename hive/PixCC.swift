@@ -63,7 +63,6 @@ struct PixCC: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        //Spacer()
         .padding(.bottom, 50)
         .contentShape(Rectangle())
         .onTapGesture {

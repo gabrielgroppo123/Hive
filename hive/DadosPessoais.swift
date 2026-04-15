@@ -74,9 +74,7 @@ struct DadosPessoais: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 35)
                         .padding(.bottom)
-                    //}
                     
-                    //VStack {
                     Text("Telefone:")
                         .font(.custom("Rubik", size: 20))
                         .fontWeight(.semibold)
@@ -91,9 +89,7 @@ struct DadosPessoais: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 35)
                         .padding(.bottom, )
-                    //}
                     
-                    //VStack {
                     Text("Endereço:")
                         .font(.custom("Rubik", size: 20))
                         .fontWeight(.semibold)

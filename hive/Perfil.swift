@@ -25,7 +25,7 @@ struct Perfil: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 35)
                     .padding(.bottom, 25)
-                    .padding(.top, 38)
+                    .padding(.top, 60)
                 
                 Spacer()
                 
@@ -37,7 +37,6 @@ struct Perfil: View {
                     .frame(width: 70, height: 70)
                 
                 Label("Pedro Henrique Hossaka Teruel", systemImage: "nome")
-                  //.font(.system(size: 28))
                     .font(.custom("Rubik", size:24))
                 
                 Spacer()
@@ -118,7 +117,7 @@ struct Perfil: View {
                     }.navigationDestination(isPresented: $dados){
                         DadosPessoais()
                     }
-                        //.padding(.bottom, 5)
+                       
                 }
  
                 Button(action:{
@@ -177,9 +176,10 @@ struct Perfil: View {
             }
             }
                 .padding(.horizontal, 35)
+            Spacer()
         }
         .navigationBarTitleDisplayMode(.inline)
-        .toolbarColorScheme(.dark, for: .navigationBar) // força ícones claros
+        .toolbarColorScheme(.dark, for: .navigationBar)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: { dismiss() }) {

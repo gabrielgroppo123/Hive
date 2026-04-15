@@ -24,7 +24,7 @@ struct TelaPrincipal: View {
                             Text("Olá,")
                                 .font(Font.custom("Parkinsans", size: 30))
                                 .foregroundColor(Color("corPrincipal"))
-                            Text("Fulano")
+                            Text("Pedro")
                                 .font(Font.custom("Parkinsans", size: 30))
                                 .foregroundColor(Color("corPrincipal"))
                                 .fontWeight(.bold)
@@ -259,9 +259,6 @@ struct TelaPrincipal: View {
                 .padding(.bottom,50)
 
             }
-
-                
-                                // Carteira flutuando por cima com gesto de arrastar
                 Carteira()
                     .offset(y: offsetCarteira == -630 ? 0 : 630 + offsetCarteira)
                     .gesture(

@@ -16,10 +16,7 @@ struct PixChave: View {
     
     var body: some View {
         VStack{
-            
             VStack{
-               
-                
                 HStack{
                     Text("Chave Pix")
                         .font(.custom("Rubik", size: 18))
@@ -66,7 +63,7 @@ struct PixChave: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        //Spacer()
+        
         .padding(.bottom, 50)
         .contentShape(Rectangle())
         .onTapGesture {

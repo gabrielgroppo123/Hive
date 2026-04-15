@@ -74,7 +74,7 @@ struct CriarConta: View {
                         Color("corPrincipal"))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 35)
-                    .padding(.top, 60)
+                    .padding(.top, 50)
                 
                 
                 // Campo nome
@@ -352,6 +352,10 @@ struct CriarConta: View {
             }
             .navigationBarBackButtonHidden(true)
             .ignoresSafeArea(.keyboard)
+            .contentShape(Rectangle())
+            .onTapGesture {
+                campoAtivo = false
+            }
         }}
 }
 

@@ -21,6 +21,7 @@ struct AreaBoleto: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
                 .padding(.bottom, 25)
+                .padding(.top, 50)
             
             VStack{
                 Button(action:{
@@ -104,6 +105,7 @@ struct AreaBoleto: View {
                         .padding(.bottom, 30)
                         .foregroundColor(Color(.darkGray))
                 }}
+            Spacer()
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbarColorScheme(.dark, for: .navigationBar) // força ícones claros
