@@ -14,8 +14,8 @@ struct DigitePin: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color("corPrincipal"))
                 .padding(.leading, 35)
-                .padding(.bottom, 40)
-                .padding(.top, 100)
+                .padding(.bottom, 45)
+                .padding(.top, 45)
             
             // PIN VISUAL (4 quadrados)
             HStack(spacing: 16) {
@@ -41,7 +41,7 @@ struct DigitePin: View {
                 }
             }
             .padding(.horizontal, 35)
-            .padding(.bottom, 50)
+            .padding(.bottom, 45)
 
             // TEXTFIELD INVISÍVEL (motor real)
             TextField("", text: $pin)
@@ -52,7 +52,7 @@ struct DigitePin: View {
                     let filtered = newValue.filter { $0.isNumber }
                     pin = String(filtered.prefix(4))
                 }
-            Spacer()
+            //Spacer()
             // BOTÃO
             Button(action: {
                 irComprovante = true
@@ -70,12 +70,11 @@ struct DigitePin: View {
             }
             
             .padding(.horizontal, 35)
-            .padding(.top, 100)
-            .padding(.bottom, 50)
+            .padding(.bottom, 70)
             .navigationDestination(isPresented: $irComprovante){
                 ComprovantePix()
             }
-        
+        Spacer()
         }
         .onAppear {
             isFocused = true
@@ -91,6 +90,7 @@ struct DigitePin: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        .ignoresSafeArea(.keyboard)
     }
 
    

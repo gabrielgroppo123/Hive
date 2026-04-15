@@ -17,7 +17,7 @@ struct BoletoDigitar: View {
                     Spacer()
 
                 }.padding(.horizontal, 35)
-                .padding(.top, 80)
+                .padding(.top, 40)
                 
             TextField("", text: $valor)
                 .padding(10)

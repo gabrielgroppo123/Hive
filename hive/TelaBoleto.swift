@@ -21,7 +21,7 @@ struct AreaBoleto: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
                 .padding(.bottom, 25)
-                .padding(.top, 50)
+                .padding(.top, 40)
             
             VStack{
                 Button(action:{
@@ -107,20 +107,19 @@ struct AreaBoleto: View {
                 }}
             Spacer()
         }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarColorScheme(.dark, for: .navigationBar) // força ícones claros
+        .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: { dismiss() }) {
                     Image(systemName: "chevron.left")
                         .foregroundColor(Color("corPrincipal"))
+                        .bold()
                 }
             }
         }
-        .navigationBarBackButtonHidden(true)
     
         .padding()
-        .padding(.bottom, 150)
+        
     }
 }
 

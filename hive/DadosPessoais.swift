@@ -29,7 +29,7 @@ struct DadosPessoais: View {
     var body: some View {
         VStack {
             
-            Spacer()
+            
 //
             Text("Dados pessoais")
                 .font(.custom("Parkinsans", size: 38))
@@ -37,8 +37,8 @@ struct DadosPessoais: View {
                 .foregroundStyle(Color("corPrincipal"))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 35)
-                .padding(.bottom, 70)
-                .padding(.top, 30)
+                .padding(.bottom, 50)
+                .padding(.top, 40)
             
             //Spacer()
             

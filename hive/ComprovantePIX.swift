@@ -10,14 +10,13 @@ import SwiftUI
 struct ComprovantePix: View {
     @State var compartilhar = false
     @State var fechar = false
+    @Environment(\.dismiss) var dismiss
     var body: some View {
-        
         VStack{
-    
             VStack{
                 Image("confirma")
                     .padding(.bottom, 10)
-                    .padding(.top, 70)
+                    .padding(.top, 60)
                 Text ("Pago R$50,00")
                     .font(.custom("Rubik", size: 22))
                     .fontWeight(.semibold)
@@ -34,6 +33,8 @@ struct ComprovantePix: View {
                         .foregroundStyle(Color .gray)
                         .padding(.leading, -2)
                 }
+                .padding(.bottom, 30)
+                
             }
             Spacer()
             
@@ -120,6 +121,7 @@ struct ComprovantePix: View {
                         .font(.custom("Rubik", size:14))
                 }
                 .padding(.horizontal, 35)
+                Spacer()
               //  .padding(.bottom, 30)
             }
             Spacer()
@@ -155,9 +157,21 @@ struct ComprovantePix: View {
                         TelaPrincipal()
                     }
                 }
-            }.padding(.bottom, 20)
+                //Spacer()
+            }.padding(.bottom, 50)
 
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Color("corPrincipal"))
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 #Preview {

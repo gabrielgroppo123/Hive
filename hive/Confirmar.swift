@@ -10,7 +10,7 @@ import SwiftUI
 struct Confirmar: View {
     @State var continuar: Bool = false
     @State var voltar: Bool = false
-    
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         
@@ -107,10 +107,21 @@ struct Confirmar: View {
                 }.navigationDestination(isPresented:$continuar){
                     DigitePin()
                 }
-                .padding(.bottom, 20)
+                .padding(.bottom, 50)
             }
-            Spacer()
+            //Spacer()
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Color("corPrincipal"))
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
         
     }
 }

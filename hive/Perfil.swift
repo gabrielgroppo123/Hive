@@ -1,4 +1,3 @@
-
 //
 //  Perfil.swift
 //  hivepart
@@ -16,7 +15,7 @@ struct Perfil: View {
     @State var sair: Bool = false
     var body: some View {
         VStack {
-//
+
             HStack{
                 Text("Meu Perfil")
                     .font(.custom("Parkinsans", size: 40))
@@ -24,11 +23,7 @@ struct Perfil: View {
                     .foregroundColor(Color("corPrincipal"))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 35)
-                    .padding(.bottom, 25)
-                    .padding(.top, 60)
-                
-                Spacer()
-                
+                    .padding(.top, 40)
             }
             
             HStack{
@@ -37,6 +32,7 @@ struct Perfil: View {
                     .frame(width: 70, height: 70)
                 
                 Label("Pedro Henrique Hossaka Teruel", systemImage: "nome")
+                  //.font(.system(size: 28))
                     .font(.custom("Rubik", size:24))
                 
                 Spacer()
@@ -117,7 +113,7 @@ struct Perfil: View {
                     }.navigationDestination(isPresented: $dados){
                         DadosPessoais()
                     }
-                       
+                        //.padding(.bottom, 5)
                 }
  
                 Button(action:{
@@ -140,6 +136,7 @@ struct Perfil: View {
                 }
             }
             .padding(.vertical)
+            Spacer()
             
             
             Rectangle()
@@ -176,10 +173,10 @@ struct Perfil: View {
             }
             }
                 .padding(.horizontal, 35)
-            Spacer()
+                .padding(.bottom, 50)
         }
         .navigationBarTitleDisplayMode(.inline)
-        .toolbarColorScheme(.dark, for: .navigationBar)
+        .toolbarColorScheme(.dark, for: .navigationBar) // força ícones claros
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: { dismiss() }) {

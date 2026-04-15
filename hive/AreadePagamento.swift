@@ -11,10 +11,10 @@ struct AreadePagamento: View {
     @State var voltar: Bool = false
     @State var confirmar: Bool = false
     @State var valor: String = ""
+    @FocusState private var campoAtivo: Bool
     
     var body: some View {
         VStack{
-            
             VStack{
                 HStack{
                     Text("Saldo")
@@ -25,7 +25,7 @@ struct AreadePagamento: View {
                         .foregroundColor(Color(.darkGray))
                     Image("olho")
                 }.padding(.horizontal, 35)
-                    .padding(.top, 80)
+                    .padding(.top, 40)
                 
                 Rectangle()
                   .foregroundColor(.clear)
@@ -36,9 +36,10 @@ struct AreadePagamento: View {
                     .padding(10)
                     .background(Color(.systemGray6))
                     .cornerRadius(10)
-                
+                    .keyboardType(.numberPad)
                     .frame(width: 320)
                     .padding(.top, 50)
+                    .focused($campoAtivo)
                 HStack{
                     Text("Pagar para")
                         .font(.custom("Rubik", size: 16))
@@ -50,12 +51,14 @@ struct AreadePagamento: View {
                         .fontWeight(.semibold)
                         .foregroundColor(Color(.corPrincipal))
                     
-                }.padding(.bottom, 300)
+                }.padding(.bottom, 80)
                 .padding(.leading, 35)
                 
+                
             }
-  
+            .ignoresSafeArea(.keyboard)
             Spacer()
+            
             
             Button(action:{
                 confirmar = true
@@ -65,15 +68,17 @@ struct AreadePagamento: View {
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
                         .font(.custom("Rubik", size: 20))
-                        .frame(width: 320, height: 60)
+                        .frame(width: 320, height: 50)
                         .background(Color(.corPrincipal))
                         .cornerRadius(12)
                 }.navigationDestination(isPresented: $confirmar){
-                    DigitePin()
+                    Confirmar()
                 }
-               
             }
+            .padding(.bottom, 50)
+            //Spacer()
         }
+        
         .navigationBarTitleDisplayMode(.inline)
         .toolbarColorScheme(.dark, for: .navigationBar) // força ícones claros
         .toolbar {
@@ -85,8 +90,10 @@ struct AreadePagamento: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        Spacer()
-        .padding(.bottom, 50)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            campoAtivo = false
+        }
     }
     
 }

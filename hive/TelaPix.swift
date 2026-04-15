@@ -14,7 +14,7 @@ struct TelaPix: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 35)
                 .padding(.bottom, 25)
-                .padding(.top, 20)
+                .padding(.top, 40)
             
             // Botões
             VStack(spacing: 8) {

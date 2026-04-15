@@ -10,16 +10,16 @@ import SwiftUI
 struct ComprovanteBoleto: View {
     @State var compartilhar = false
     @State var fechar = false
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         
         VStack{
-           
-            
             VStack{
+            
                 Image("confirma")
                     .padding(.bottom, 10)
                     .padding(.top, 70)
-                Text ("Pago R$100,00")
+                Text ("Pago R$50,00")
                     .font(.custom("Rubik", size: 22))
                     .fontWeight(.semibold)
                     .padding(.bottom, 1)
@@ -29,7 +29,7 @@ struct ComprovanteBoleto: View {
                         .fontWeight(.regular)
                         .foregroundStyle(Color .gray)
                         
-                    Text ("São José Restaurante")
+                    Text ("iPlace Jurubatuba")
                         .font(.custom("Rubik", size: 18))
                         .fontWeight(.medium)
                         .foregroundStyle(Color .gray)
@@ -95,7 +95,7 @@ struct ComprovanteBoleto: View {
                         .font(.custom("Rubik", size:14))
                         .foregroundStyle(.gray)
                     Spacer()
-                    Text("São José Restaurante")
+                    Text("iPlace Jurubatuba")
                         .font(.custom("Rubik", size:14))
                 }
                 .padding(.horizontal, 35)
@@ -149,6 +149,17 @@ struct ComprovanteBoleto: View {
             }.padding(.bottom, 50)
 
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: { dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Color("corPrincipal"))
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

@@ -74,7 +74,7 @@ struct CriarConta: View {
                         Color("corPrincipal"))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 35)
-                    .padding(.top, 50)
+                    .padding(.top, 40)
                 
                 
                 // Campo nome
@@ -270,7 +270,7 @@ struct CriarConta: View {
                     Button(action: { mostrarChavePix = true }) {
                         HStack {
                             Text(chavePix == nil ? "Selecionar Chave Pix" : chavePix!)
-                                .foregroundColor(chavePix == nil ? Color(.systemGray2) : .black)
+                                .foregroundColor(chavePix == nil ? Color(.systemGray2) : .primary)
                             Spacer()
                         }
                         .padding(10)

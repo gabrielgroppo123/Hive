@@ -30,7 +30,8 @@ struct PixCC: View {
                     .cornerRadius(10)
                     .frame(width: 320)
                     .focused($campoAtivo)
-            }.padding(.top, 100)
+            }.padding(.top, 60)
+                .ignoresSafeArea(.keyboard)
   
             Spacer()
             
@@ -43,11 +44,11 @@ struct PixCC: View {
                         .fontWeight(.semibold)
                         .font(.custom("Rubik", size: 20))
                         .padding(.vertical, 15)
-                        .frame(width: 320, height: 60)
+                        .frame(width: 320, height: 50)
                         .background(Color("corPrincipal"))
                         .cornerRadius(12)
                 }.navigationDestination(isPresented: $confirmar){
-                    Confirmar()
+                    AreadePagamento()
                 }
                 .padding(.bottom, 10)
             }

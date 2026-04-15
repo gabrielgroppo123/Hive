@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LerQRCode: View {
     @Environment(\.dismiss) var dismiss
-    @State private var irConfirmar: Bool = false
+    @State private var irPagamento: Bool = false
     var body: some View {
         
         VStack{
@@ -26,15 +26,15 @@ struct LerQRCode: View {
                 .background(Color(.lightGray))
                 .padding(.bottom, 45)
             //Pix
-            Button(action: { irConfirmar = true }) {
+            Button(action: { irPagamento = true }) {
                 ZStack {
                     Image("ellipse")
                     Image("Camera")
                 }
             }
             .buttonStyle(.plain)
-            .navigationDestination(isPresented: $irConfirmar) {
-                Confirmar()
+            .navigationDestination(isPresented: $irPagamento) {
+                AreadePagamento()
             }
             Spacer()
             

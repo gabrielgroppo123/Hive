@@ -15,10 +15,11 @@ struct DefinirPin: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color("corPrincipal"))
                 .padding(.leading, 35)
-                .padding(.bottom, 40)
-                .padding(.top, 60)
+                .padding(.bottom, 45)
+                .padding(.top, 45)
+                .ignoresSafeArea(.keyboard)
 
-            //Spacer()
+           
             // PIN VISUAL (4 quadrados)
             HStack(spacing: 16) {
                 ForEach(0..<4) { i in
@@ -44,7 +45,8 @@ struct DefinirPin: View {
                 }
             }
             .padding(.horizontal, 35)
-            .padding(.bottom, 50)
+            .padding(.bottom, 45)
+            .ignoresSafeArea(.keyboard)
 
             // TEXTFIELD INVISÍVEL (motor real)
             TextField("", text: $pin)
@@ -55,7 +57,7 @@ struct DefinirPin: View {
                     let filtered = newValue.filter { $0.isNumber }
                     pin = String(filtered.prefix(4))
                 }
-            Spacer()
+           
             
             // BOTÃO
             Button(action: {
@@ -74,19 +76,18 @@ struct DefinirPin: View {
             }
             
             .padding(.horizontal, 35)
-            .padding(.top, 100)
-            .padding(.bottom, 50)
+            .padding(.bottom, 70)
             .navigationDestination(isPresented: $irHome){
                 TelaPrincipal()
             }
             
             
-            //Spacer()
+            Spacer()
         }
         .onAppear {
             isFocused = true
         }
-        .ignoresSafeArea(.keyboard)
+        
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -97,7 +98,7 @@ struct DefinirPin: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        
+        .ignoresSafeArea(.keyboard)
     }
 
    

@@ -12,7 +12,7 @@ struct DuvidasFrequentes: View {
                 .foregroundColor(Color("corPrincipal"))
                 .padding(.horizontal, 35)
                 .padding(.bottom, 35)
-                .padding(.top, 20)
+                .padding(.top, 40)
             
             
             VStack(spacing: 16) {

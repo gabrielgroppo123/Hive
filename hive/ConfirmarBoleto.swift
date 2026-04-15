@@ -105,7 +105,7 @@ struct ConfirmarBoleto: View {
                         .background(Color("corPrincipal"))
                         .cornerRadius(12)
                 }.navigationDestination(isPresented:$continuar){
-                    DigitePin()
+                    DigitePinBoleto()
                 }
                 .padding(.bottom, 20)
             }
